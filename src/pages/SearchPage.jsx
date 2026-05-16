@@ -1,36 +1,44 @@
-import { Search, Mic } from "lucide-react";
+import {
+Search,
+Mic
+} from "lucide-react";
+
 import { useState } from "react";
 
-export default function SearchPage() {
+import { courses } from "../data/dummy";
+
+export default function SearchPage(){
 
 const [query,setQuery]=useState("");
 
-const items=[
-{name:"Youtube",link:"https://youtube.com"},
-{name:"Instagram",link:"https://instagram.com"},
-{name:"English Speaking",link:"/english"},
-{name:"Praja Info",link:"/praja"},
-{name:"Business",link:"/business"},
-{name:"Part Time Income",link:"/income"},
-{name:"Mobile Tricks",link:"/mobile"},
-{name:"Courses",link:"/courses"}
+const categories=[
+"Praja Info",
+"English Speaking",
+"Youtube",
+"Instagram",
+"Business",
+"Part Time Income",
+"Mobile Tricks",
+"View All"
 ];
 
 
-const filtered=
-items.filter(item=>
-item.name
+const filtered=courses.filter(course=>
+course.title
 .toLowerCase()
-.includes(query.toLowerCase())
+.includes(
+query.toLowerCase()
+)
 );
 
 return(
 
 <div className="
 bg-black
-min-h-screen
 text-white
+min-h-screen
 p-5
+pb-24
 ">
 
 {/* SEARCH */}
@@ -41,11 +49,13 @@ p-5
 flex-1
 bg-[#1e1e1e]
 rounded-2xl
-px-4
-py-4
+p-4
 flex
 items-center
 gap-3
+border
+border-gray-700
+focus-within:border-purple-600
 ">
 
 <Search/>
@@ -81,28 +91,153 @@ p-4
 
 
 
-{/* RESULTS */}
+{/* CATEGORIES */}
 
-<div className="mt-8 space-y-4">
+<div className="
+grid
+grid-cols-4
+gap-6
+mt-8
+text-center
+">
 
-{filtered.map(item=>(
+{categories.map(cat=>(
 
-<a
-key={item.name}
-href={item.link}
+<div key={cat}>
 
-className="
-block
+<div className="
+w-16
+h-16
+rounded-full
 bg-[#1e1e1e]
+mx-auto
+mb-2
+"/>
+
+<p className="text-sm">
+
+{cat}
+
+</p>
+
+</div>
+
+))}
+
+</div>
+
+
+
+{/* TOP VIDEOS */}
+
+<h2 className="
+text-3xl
+font-bold
+mt-12
+mb-5
+">
+
+Top Videos
+
+</h2>
+
+
+<div className="
+grid
+grid-cols-3
+gap-3
+">
+
+{filtered.slice(0,6).map(course=>(
+
+<div
+key={course.id}
+className="
+bg-[#111]
 rounded-xl
-p-4
-hover:bg-[#2a2a2a]
+overflow-hidden
 "
 >
 
-{item.name}
+<img
+src={course.image}
+className="
+w-full
+h-[150px]
+object-cover
+"
+/>
 
-</a>
+<div className="p-2">
+
+<p className="
+text-xs
+font-semibold
+line-clamp-2
+">
+
+{course.title}
+
+</p>
+
+</div>
+
+</div>
+
+))}
+
+</div>
+
+
+
+{/* RECOMMENDATIONS */}
+
+<h2 className="
+text-3xl
+font-bold
+mt-12
+mb-5
+">
+
+Recommended
+
+</h2>
+
+
+<div className="
+flex
+gap-4
+overflow-x-auto
+">
+
+{courses.map(course=>(
+
+<div
+key={course.id}
+className="
+min-w-[130px]
+bg-[#111]
+rounded-xl
+overflow-hidden
+"
+>
+
+<img
+src={course.image}
+className="
+w-full
+h-[150px]
+object-cover
+"
+/>
+
+<p className="p-2 text-xs">
+
+{course.title}
+
+</p>
+
+</div>
 
 ))}
 

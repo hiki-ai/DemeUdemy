@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 
 import {
   Search,
@@ -494,136 +495,83 @@ const MainLayout = () => {
       {/* MOBILE FIXED NAVBAR */}
 
       <div className="
-      fixed
-      bottom-0
-      left-0
-      right-0
+fixed bottom-0 left-0 right-0
+bg-white border-t h-[65px]
+flex justify-around items-center
+shadow-lg z-[1000] lg:hidden
+">
 
-      bg-white
-      border-t
-      h-[65px]
-
-      flex
-      justify-around
-      items-center
-
-      shadow-lg
-      z-[1000]
-
-      lg:hidden
-      ">
-
-        <Link
-          to="/"
-          className="
-          flex
-          flex-col
-          items-center
-          text-xs
-          text-purple-700
-          "
-        >
-
-          <Home size={20} />
-
-          <span>
-
-            Featured
-
-          </span>
-
-        </Link>
+<Link
+to="/"
+className={`flex flex-col items-center text-xs
+${location.pathname==="/"?"text-purple-700":"text-gray-600"}
+`}
+>
+<Home size={20}/>
+<span>Featured</span>
+</Link>
 
 
+<Link
+to="/search"
+className={`flex flex-col items-center text-xs
+${location.pathname==="/search"
+?"text-purple-700"
+:"text-gray-600"}
+`}
+>
 
-        <Link
-          to="/search"
-          className="
-          flex
-          flex-col
-          items-center
-          text-xs
-          "
-        >
+<Search size={20}/>
+<span>Search</span>
 
-          <Search size={20} />
-
-          <span>
-
-            Search
-
-          </span>
-
-        </Link>
+</Link>
 
 
+<Link
+to="/learning"
+className={`flex flex-col items-center text-xs
+${location.pathname==="/learning"
+?"text-purple-700"
+:"text-gray-600"}
+`}
+>
 
-        <Link
-          to="/learning"
-          className="
-          flex
-          flex-col
-          items-center
-          text-xs
-          "
-        >
+<PlayCircle size={20}/>
+<span>Learning</span>
 
-          <PlayCircle size={20} />
-
-          <span>
-
-            Learning
-
-          </span>
-
-        </Link>
+</Link>
 
 
+<Link
+to="/wishlist"
+className={`flex flex-col items-center text-xs
+${location.pathname==="/wishlist"
+?"text-purple-700"
+:"text-gray-600"}
+`}
+>
 
-        <Link
-          to="/wishlist"
-          className="
-          flex
-          flex-col
-          items-center
-          text-xs
-          "
-        >
+<Heart size={20}/>
+<span>Wishlist</span>
 
-          <Heart size={20} />
-
-          <span>
-
-            Wishlist
-
-          </span>
-
-        </Link>
+</Link>
 
 
+<Link
+to="/account"
+className={`flex flex-col items-center text-xs
+${location.pathname==="/account"
+?"text-purple-700"
+:"text-gray-600"}
+`}
+>
 
-        <Link
-          to="/account"
-          className="
-          flex
-          flex-col
-          items-center
-          text-xs
-          "
-        >
+<UserCircle size={20}/>
+<span>Account</span>
 
-          <UserCircle size={20} />
+</Link>
 
-          <span>
-
-            Account
-
-          </span>
-
-        </Link>
-
-      </div>
-
+</div>
     </div>
 
   );
