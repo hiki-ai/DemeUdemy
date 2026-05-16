@@ -126,6 +126,30 @@ function App() {
           />
 
 
+          {/* LEARNING */}
+
+          <Route
+            path="learning"
+            element={<MyLearning />}
+          />
+
+
+          {/* WISHLIST */}
+
+          <Route
+            path="wishlist"
+            element={<StudentDashboard />}
+          />
+
+
+          {/* ACCOUNT */}
+
+          <Route
+            path="account"
+            element={<StudentDashboard />}
+          />
+
+
           <Route
             path="careers"
             element={<InformationPage title="Careers" />}
