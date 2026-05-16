@@ -124,7 +124,7 @@ const StudentDashboard = () => {
                     </div>
 
                     {/* Content */}
-                    <div className="p-8 space-y-6 bg-gradient-to-b from-transparent to-primary/5">
+                    <div className="p-6 md:p-8 space-y-6 bg-gradient-to-b from-transparent to-primary/5">
                        <div className="flex justify-between items-start">
                           <h3 className="text-lg font-black text-text leading-tight line-clamp-2 group-hover:text-primary transition-colors">
                              {video.title}
@@ -174,7 +174,7 @@ const StudentDashboard = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-white p-5 rounded-[2.5rem] border border-border flex gap-5 items-center group hover:border-primary/20 hover:shadow-glass transition-all duration-500"
+                className="bg-white p-4 md:p-5 rounded-[2.5rem] border border-border flex gap-5 items-center group hover:border-primary/20 hover:shadow-glass transition-all duration-500"
               >
                 <div className="w-24 h-24 md:w-32 md:h-24 rounded-2xl overflow-hidden relative shrink-0">
                   <img src={course.thumbnail} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Course" />
@@ -205,7 +205,7 @@ const StudentDashboard = () => {
         {/* Right Column */}
         <div className="space-y-12">
           {/* Calendar Widget */}
-          <div className="bg-white p-10 rounded-[3.5rem] border border-border shadow-sm text-center relative overflow-hidden group">
+          <div className="bg-white p-6 md:p-10 rounded-[3.5rem] border border-border shadow-sm text-center relative overflow-hidden group">
              <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 blur-2xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
              <Calendar className="w-10 h-10 text-primary mx-auto mb-6" />
              <h3 className="text-xl font-black text-text mb-2 tracking-tight">Daily Goal</h3>
@@ -218,7 +218,7 @@ const StudentDashboard = () => {
           </div>
 
           {/* Achievement Badges */}
-          <div className="bg-white p-10 rounded-[3.5rem] border border-border shadow-sm">
+          <div className="bg-white p-6 md:p-10 rounded-[3.5rem] border border-border shadow-sm">
              <div className="flex items-center justify-between mb-10">
                 <h3 className="text-xl font-black text-text tracking-tight">Recent Badges</h3>
                 <Award className="w-6 h-6 text-primary" />
@@ -238,7 +238,7 @@ const StudentDashboard = () => {
           </div>
 
           {/* Tips Section */}
-          <div className="bg-background-dark p-10 rounded-[3.5rem] relative overflow-hidden group shadow-2xl">
+          <div className="bg-background-dark p-6 md:p-10 rounded-[3.5rem] relative overflow-hidden group shadow-2xl">
              <div className="absolute inset-0 bg-premium-gradient opacity-10"></div>
              <Info className="w-8 h-8 text-primary-light mb-6 relative z-10" />
              <h4 className="text-lg font-black text-white mb-4 tracking-tight relative z-10">Pro Learning Tip</h4>
