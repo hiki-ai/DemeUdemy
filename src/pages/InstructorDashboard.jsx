@@ -57,28 +57,29 @@ const InstructorDashboard = () => {
         <div className="lg:col-span-2 space-y-8">
           <h3 className="text-2xl font-black text-text tracking-tight">Your Courses</h3>
           <div className="bg-white border border-border rounded-[3rem] overflow-hidden shadow-sm">
-            <table className="w-full text-left">
+            <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
+              <table className="w-full text-left">
               <thead>
                 <tr className="bg-background-light text-[10px] font-black text-text-muted uppercase tracking-[0.2em]">
-                  <th className="px-10 py-6">Course Name</th>
-                  <th className="px-10 py-6">Students</th>
-                  <th className="px-10 py-6">Status</th>
-                  <th className="px-10 py-6">Rating</th>
-                  <th className="px-10 py-6">Actions</th>
+                  <th className="px-4 py-4 md:px-10 md:py-6">Course Name</th>
+                  <th className="px-4 py-4 md:px-10 md:py-6">Students</th>
+                  <th className="px-4 py-4 md:px-10 md:py-6">Status</th>
+                  <th className="px-4 py-4 md:px-10 md:py-6">Rating</th>
+                  <th className="px-4 py-4 md:px-10 md:py-6">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-border">
                 {[1, 2, 3].map((id) => (
                   <tr key={id} className="group hover:bg-background-light/30 transition-colors">
-                    <td className="px-10 py-8 font-black text-text group-hover:text-primary transition-colors">Advanced Next.js Architecture {id}</td>
-                    <td className="px-10 py-8 text-sm font-bold text-text-secondary">4,520</td>
-                    <td className="px-10 py-8">
+                    <td className="px-4 py-6 md:px-10 md:py-8 font-black text-text group-hover:text-primary transition-colors">Advanced Next.js Architecture {id}</td>
+                    <td className="px-4 py-6 md:px-10 md:py-8 text-sm font-bold text-text-secondary">4,520</td>
+                    <td className="px-4 py-6 md:px-10 md:py-8">
                       <span className="px-4 py-1.5 rounded-full bg-green-500/10 text-green-600 text-[10px] font-black uppercase tracking-widest border border-green-500/20">Published</span>
                     </td>
-                    <td className="px-10 py-8 flex items-center gap-1.5 font-black text-text">
+                    <td className="px-4 py-6 md:px-10 md:py-8 flex items-center gap-1.5 font-black text-text">
                        <Star className="w-4 h-4 text-yellow-400 fill-current" /> 4.9
                     </td>
-                    <td className="px-10 py-8">
+                    <td className="px-4 py-6 md:px-10 md:py-8">
                       <div className="flex items-center gap-2">
                          <button className="p-3 hover:bg-primary/10 rounded-xl text-text-muted hover:text-primary transition-all"><Edit3 className="w-4.5 h-4.5" /></button>
                          <button className="p-3 hover:bg-secondary/10 rounded-xl text-text-muted hover:text-secondary transition-all"><Eye className="w-4.5 h-4.5" /></button>
@@ -88,7 +89,8 @@ const InstructorDashboard = () => {
                   </tr>
                 ))}
               </tbody>
-            </table>
+              </table>
+            </div>
           </div>
         </div>
 

@@ -42,7 +42,7 @@ const AdminDashboard = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: i * 0.1 }}
-            className="bg-white p-8 rounded-[3rem] border border-border relative overflow-hidden group hover:border-primary/20 transition-all duration-500"
+            className="bg-white p-6 md:p-8 rounded-[3rem] border border-border relative overflow-hidden group hover:border-primary/20 transition-all duration-500"
           >
             <div className={`absolute top-0 right-0 w-32 h-32 ${stat.bg} blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-700`}></div>
             <div className="flex flex-col gap-6 relative z-10">
@@ -74,7 +74,7 @@ const AdminDashboard = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.1 }}
-                  className="bg-white p-6 rounded-[2.5rem] border border-border flex items-center justify-between group hover:border-primary/30 transition-all duration-500"
+                  className="bg-white p-4 md:p-6 rounded-[2.5rem] border border-border flex items-center justify-between group hover:border-primary/30 transition-all duration-500"
                 >
                    <div className="flex items-center gap-6">
                       <div className="w-16 h-16 rounded-2xl bg-background-light flex items-center justify-center text-primary shadow-sm group-hover:bg-primary group-hover:text-white transition-all">
@@ -103,7 +103,7 @@ const AdminDashboard = () => {
         {/* System Activity */}
         <div className="space-y-8">
            <h3 className="text-2xl font-black text-text tracking-tight">System Activity</h3>
-           <div className="bg-white p-12 rounded-[4rem] border border-border relative overflow-hidden shadow-sm">
+           <div className="bg-white p-6 md:p-12 rounded-[4rem] border border-border relative overflow-hidden shadow-sm">
               <div className="space-y-10 relative z-10">
                  {[
                    { event: 'Database Backup', time: '10 mins ago', status: 'Success', detail: 'Primary cluster automated backup complete' },

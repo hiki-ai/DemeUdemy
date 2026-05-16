@@ -28,7 +28,6 @@ const MainLayout = () => {
     { name: 'Student Portal', path: '/dashboard/student', icon: <UserCircle className="w-5 h-5" />, color: 'text-primary' },
     { name: 'Instructor Portal', path: '/dashboard/instructor', icon: <LayoutDashboard className="w-5 h-5" />, color: 'text-secondary' },
     { name: 'Admin Portal', path: '/dashboard/admin', icon: <Settings className="w-5 h-5" />, color: 'text-accent' },
-    { name: 'Preview Portal', path: '/preview', icon: <Settings className="w-5 h-5" />, color: 'text-accent' },
   ];
 
   return (
