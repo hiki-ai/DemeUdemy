@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+@import "tailwindcss";
+
+@config "../tailwind.config.js";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-white text-text font-sans selection:bg-primary/20 selection:text-primary antialiased;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-white/20;
+  }
+  
+  .glass-dark {
+    @apply bg-black/40 backdrop-blur-xl border border-white/10;
+  }
+  
+  .premium-button {
+    @apply relative overflow-hidden bg-premium-gradient text-white font-black rounded-2xl transition-all duration-500 hover:shadow-violet-glow active:scale-95;
+  }
+  
+  .premium-card {
+    @apply bg-white border border-border rounded-[2.5rem] transition-all duration-500 hover:border-primary/20 hover:shadow-glass;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-premium-gradient;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/20 rounded-full hover:bg-primary/40 transition-colors;
+}
+
+/* Swiper Polish (Fixed invalid @apply !important) */
+.swiper-pagination-bullet {
+  background-color: var(--color-primary) !important;
+  opacity: 0.2 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--color-primary) !important;
+  opacity: 1 !important;
+  width: 32px !important;
+  border-radius: 99px !important;
+}
+
+.swiper-button-next, .swiper-button-prev {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(8px) !important;
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid #E5E7EB !important;
+  color: #7C3AED !important;
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+  font-size: 14px !important;
+  font-weight: 900 !important;
+}
+
+/* No Scrollbar Utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Skeleton Loading Shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
