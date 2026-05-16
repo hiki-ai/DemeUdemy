@@ -40,10 +40,42 @@ const StudentDashboard = () => {
     },
   ];
 
+  const demoVideos = [
+    {
+      title: "React Full Course",
+      duration: "18 mins",
+      progress: 65,
+      thumbnail:
+        "https://img.youtube.com/vi/w7ejDZ8SWv8/maxresdefault.jpg",
+      video:
+        "https://www.youtube.com/embed/w7ejDZ8SWv8",
+    },
+
+    {
+      title: "Tailwind CSS",
+      duration: "22 mins",
+      progress: 30,
+      thumbnail:
+        "https://img.youtube.com/vi/lCxcTsOHrjo/maxresdefault.jpg",
+      video:
+        "https://www.youtube.com/embed/lCxcTsOHrjo",
+    },
+
+    {
+      title: "AI Development",
+      duration: "40 mins",
+      progress: 80,
+      thumbnail:
+        "https://img.youtube.com/vi/JMUxmLyrhSk/maxresdefault.jpg",
+      video:
+        "https://www.youtube.com/embed/JMUxmLyrhSk",
+    },
+  ];
+
   return (
     <div className="px-3 sm:px-5 md:px-8 py-5 space-y-8">
 
-      {/* ---------- STATS ---------- */}
+      {/* STATS */}
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
 
@@ -51,8 +83,8 @@ const StudentDashboard = () => {
 
           <motion.div
             key={i}
-            initial={{opacity:0}}
-            animate={{opacity:1}}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             className="bg-white rounded-xl p-4 border shadow-sm"
           >
 
@@ -83,85 +115,167 @@ const StudentDashboard = () => {
       </div>
 
 
-      {/* ---------- FEATURED VIDEOS ---------- */}
+
+      {/* FEATURED VIDEOS */}
 
       <div>
 
         <div className="flex justify-between mb-4">
 
           <h2 className="font-bold text-xl">
+
             🔥 Featured Videos
+
           </h2>
 
-          <div className="hidden md:flex text-xs">
-            <Zap size={15}/>
+          <div className="hidden md:flex items-center gap-1">
+
+            <Zap size={15} />
+
             Premium
+
           </div>
 
         </div>
 
 
+
         <div className="grid md:grid-cols-2 gap-5">
 
-          {[1,2,3].map((video)=>(
+          {demoVideos.map((video, index) => (
 
-            <div
-            key={video}
-            className="bg-white rounded-2xl overflow-hidden shadow border"
+            <motion.div
+              key={index}
+              whileHover={{ y: -5 }}
+              className="
+              bg-white
+              rounded-2xl
+              overflow-hidden
+              border
+              shadow"
             >
 
-              {/* Responsive iframe */}
+              <a
+                href={video.video}
+                target="_blank"
+                rel="noreferrer"
+              >
 
-              <div className="relative w-full pt-[56.25%]">
+                <div className="relative">
 
-                <iframe
-                className="absolute inset-0 w-full h-full"
-                src=""
-                allowFullScreen
-                />
+                  <img
+                    src={video.thumbnail}
+                    className="
+                    w-full
+                    h-[190px]
+                    object-cover"
+                    alt=""
+                  />
 
-              </div>
+
+                  {/* play */}
+
+                  <div
+                    className="
+                    absolute
+                    inset-0
+                    flex
+                    justify-center
+                    items-center"
+                  >
+
+                    <div
+                      className="
+                      bg-white/90
+                      p-4
+                      rounded-full
+                      shadow-lg"
+                    >
+
+                      <Play
+                        size={28}
+                        className="
+                        fill-black
+                        text-black"
+                      />
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </a>
 
 
               <div className="p-4">
 
-                <h3 className="font-semibold text-sm sm:text-base">
+                <h3 className="font-bold">
 
-                  React Full Course
+                  {video.title}
 
                 </h3>
 
 
-                <div className="flex justify-between mt-3 text-sm">
+                <div className="flex justify-between text-sm mt-2">
 
-                  <span>65%</span>
+                  <span>
 
-                  <span>18 mins</span>
+                    {video.progress}%
+
+                  </span>
+
+                  <span>
+
+                    {video.duration}
+
+                  </span>
 
                 </div>
 
 
-                <div className="bg-gray-200 h-2 rounded-full mt-2">
+
+                <div
+                  className="
+                  bg-gray-200
+                  h-2
+                  rounded-full
+                  mt-2"
+                >
 
                   <div
-                  className="bg-purple-500 h-2 rounded-full"
-                  style={{width:"65%"}}
+                    style={{
+                      width:
+                        `${video.progress}%`
+                    }}
+
+                    className="
+                    bg-purple-600
+                    h-2
+                    rounded-full"
                   />
 
                 </div>
 
 
-                <Button className="w-full mt-4">
 
-                  Continue
+                <Button
+                  className="
+                  w-full
+                  mt-4"
+                >
 
-                  <ArrowRight size={15}/>
+                  Watch Now
+
+                  <ArrowRight
+                    size={15}
+                  />
 
                 </Button>
 
               </div>
 
-            </div>
+            </motion.div>
 
           ))}
 
@@ -170,7 +284,8 @@ const StudentDashboard = () => {
       </div>
 
 
-      {/* ---------- CONTINUE LEARNING ---------- */}
+
+      {/* CONTINUE LEARNING */}
 
       <div>
 
@@ -180,19 +295,33 @@ const StudentDashboard = () => {
 
         </h2>
 
+
         <div className="space-y-4">
 
-          {continueCourses.map((course)=>(
+          {continueCourses.map((course) => (
 
             <div
-            key={course.id}
-            className="bg-white border rounded-xl p-3 flex gap-3"
+              key={course.id}
+
+              className="
+              bg-white
+              border
+              rounded-xl
+              p-3
+              flex
+              gap-3"
             >
 
               <img
-              src={course.thumbnail}
-              className="w-20 h-20 rounded-lg object-cover"
+                src={course.thumbnail}
+
+                className="
+                w-20
+                h-20
+                rounded-lg
+                object-cover"
               />
+
 
               <div className="flex-1">
 
@@ -202,20 +331,33 @@ const StudentDashboard = () => {
 
                 </h3>
 
+
                 <p className="text-xs text-gray-500">
 
-                  {course.progress}% Complete
+                  {course.progress}%
+                  Complete
 
                 </p>
 
 
-                <div className="bg-gray-200 h-2 mt-2 rounded-full">
+                <div
+                  className="
+                  bg-gray-200
+                  h-2
+                  mt-2
+                  rounded-full"
+                >
 
                   <div
-                  style={{
-                    width:`${course.progress}%`
-                  }}
-                  className="bg-purple-500 h-2 rounded-full"
+                    style={{
+                      width:
+                        `${course.progress}%`
+                    }}
+
+                    className="
+                    bg-purple-500
+                    h-2
+                    rounded-full"
                   />
 
                 </div>
@@ -231,21 +373,35 @@ const StudentDashboard = () => {
       </div>
 
 
-      {/* ---------- RIGHT SIDEBAR -> MOBILE STACK ---------- */}
+
+      {/* EXTRA CARDS */}
 
       <div className="space-y-4">
 
-        <div className="bg-white p-5 rounded-xl shadow">
+        <div
+          className="
+          bg-white
+          p-5
+          rounded-xl
+          shadow"
+        >
 
-          <Calendar className="mx-auto"/>
+          <Calendar
+            className="mx-auto"
+          />
 
-          <h3 className="font-bold text-center mt-3">
+          <h3
+            className="
+            text-center
+            font-bold
+            mt-3"
+          >
 
             Daily Goal
 
           </h3>
 
-          <p className="text-sm text-center">
+          <p className="text-center text-sm">
 
             2 hrs left
 
@@ -254,7 +410,13 @@ const StudentDashboard = () => {
         </div>
 
 
-        <div className="bg-white p-5 rounded-xl">
+
+        <div
+          className="
+          bg-white
+          p-5
+          rounded-xl"
+        >
 
           <h3 className="font-bold">
 
@@ -265,19 +427,31 @@ const StudentDashboard = () => {
         </div>
 
 
-        <div className="bg-black text-white p-5 rounded-xl">
+
+        <div
+          className="
+          bg-black
+          text-white
+          p-5
+          rounded-xl"
+        >
 
           <Info />
 
-          <h3 className="font-bold mt-3">
+          <h3
+            className="
+            font-bold
+            mt-3"
+          >
 
             Pro Tip
 
           </h3>
 
-          <p className="text-sm opacity-70">
+          <p className="opacity-70 text-sm">
 
             Study 45 mins + break
+            improves retention.
 
           </p>
 
