@@ -93,7 +93,7 @@ const StudentDashboard = () => {
                </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                {featuredVideos.map((video, i) => (
                  <motion.div 
                    key={video.id}
@@ -101,13 +101,13 @@ const StudentDashboard = () => {
                    whileInView={{ opacity: 1, scale: 1 }}
                    viewport={{ once: true }}
                    transition={{ delay: i * 0.1 }}
-                  className="group relative bg-white/50 backdrop-blur-xl rounded-[2rem] border border-border overflow-hidden hover:border-primary/40 transition-all duration-500 shadow-lg hover:shadow-neon-purple"
+                   className="group relative bg-white/50 backdrop-blur-xl rounded-[1.2rem] border border-border overflow-hidden hover:border-primary/40 transition-all duration-500 shadow-lg hover:shadow-neon-purple"
                  >
                     {/* Neon Glow Border Effect */}
                     <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/20 rounded-[3rem] pointer-events-none transition-all duration-500"></div>
                     
                     {/* Video Container */}
-                    <div className="aspect-video relative overflow-hidden rounded-t-[1.5rem] bg-black group-hover:shadow-2xl transition-all max-h-[200px] md:max-h-none">
+                    <div className="relative overflow-hidden rounded-t-[1rem] bg-black transition-all h-[150px] md:aspect-video md:h-auto">
                        <iframe 
                          src={`https://player.vdocipher.com/v2/?otp=${video.otp}&playbackInfo=${video.playbackInfo}`}
                          className="w-full h-full absolute inset-0"
@@ -124,9 +124,9 @@ const StudentDashboard = () => {
                     </div>
 
                     {/* Content */}
-                    <div className="p-3 md:p-5 space-y-3 bg-gradient-to-b from-transparent to-primary/5">
+                    <div className="p-2 md:p-4 space-y-2 bg-gradient-to-b from-transparent to-primary/5">
                        <div className="flex justify-between items-start">
-                          <h3 className="text-sm md:text-base font-black text-text leading-tight line-clamp-2 group-hover:text-primary transition-colors">
+                            <h3 className="text-sm md:text-base font-black text-text leading-tight line-clamp-2 group-hover:text-primary transition-colors">
                              {video.title}
                           </h3>
                           <div className="flex items-center gap-1.5 text-text-muted font-black text-[9px] uppercase tracking-widest shrink-0 mt-1">
@@ -134,7 +134,7 @@ const StudentDashboard = () => {
                           </div>
                        </div>
 
-                       <div className="space-y-3">
+                          <div className="space-y-2">
                           <div className="flex justify-between text-[9px] font-black text-text-muted uppercase tracking-widest">
                              <span>Course Progress</span>
                              <span className="text-primary">{video.progress}%</span>
@@ -151,7 +151,7 @@ const StudentDashboard = () => {
                           </div>
                        </div>
 
-                          <Button className="w-full py-2.5 h-10 text-[12px] font-black uppercase tracking-[0.2em] shadow-violet-glow group-hover:scale-[1.02]">
+                            <Button className="w-full py-2 h-9 text-[11px] font-black uppercase tracking-[0.15em] group-hover:scale-[1.02]">
                           Continue Learning <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                        </Button>
                     </div>
@@ -167,23 +167,23 @@ const StudentDashboard = () => {
             </button>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8">
             {continueCourses.map((course, i) => (
               <motion.div 
                 key={course.id}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-white p-4 md:p-5 rounded-[2.5rem] border border-border flex gap-5 items-center group hover:border-primary/20 hover:shadow-glass transition-all duration-500"
+                className="bg-white p-3 md:p-4 rounded-[1.5rem] border border-border flex gap-4 items-center group hover:border-primary/20 hover:shadow-glass transition-all duration-500"
               >
-                <div className="w-24 h-24 md:w-32 md:h-24 rounded-2xl overflow-hidden relative shrink-0">
+                <div className="w-20 h-20 md:w-28 md:h-20 rounded-2xl overflow-hidden relative shrink-0">
                   <img src={course.thumbnail} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Course" />
                   <div className="absolute inset-0 bg-text/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                     <Play className="w-8 h-8 text-white fill-current" />
                   </div>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-sm md:text-base font-black text-text mb-3 truncate group-hover:text-primary transition-colors tracking-tight leading-none">{course.title}</h3>
+                  <h3 className="text-sm md:text-base font-black text-text mb-2 truncate group-hover:text-primary transition-colors tracking-tight leading-none">{course.title}</h3>
                   <div className="flex justify-between text-[9px] md:text-[10px] text-text-muted mb-2 font-black uppercase tracking-tight">
                     <span>{course.progress}% Complete</span>
                     <span className="hidden sm:inline">12/45 Lessons</span>
@@ -205,7 +205,7 @@ const StudentDashboard = () => {
         {/* Right Column */}
         <div className="space-y-12">
           {/* Calendar Widget */}
-          <div className="bg-white p-6 md:p-10 rounded-[3.5rem] border border-border shadow-sm text-center relative overflow-hidden group">
+             <div className="bg-white p-4 md:p-8 rounded-[2rem] border border-border shadow-sm text-center relative overflow-hidden group">
              <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 blur-2xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
              <Calendar className="w-10 h-10 text-primary mx-auto mb-6" />
              <h3 className="text-xl font-black text-text mb-2 tracking-tight">Daily Goal</h3>
@@ -218,7 +218,7 @@ const StudentDashboard = () => {
           </div>
 
           {/* Achievement Badges */}
-          <div className="bg-white p-6 md:p-10 rounded-[3.5rem] border border-border shadow-sm">
+           <div className="bg-white p-4 md:p-8 rounded-[2rem] border border-border shadow-sm">
              <div className="flex items-center justify-between mb-10">
                 <h3 className="text-xl font-black text-text tracking-tight">Recent Badges</h3>
                 <Award className="w-6 h-6 text-primary" />
@@ -234,11 +234,11 @@ const StudentDashboard = () => {
                   </motion.div>
                 ))}
              </div>
-             <Button variant="outline" className="w-full mt-10 h-14 text-xs font-black uppercase tracking-widest border-primary/10 text-primary hover:bg-primary/5">View All Badges</Button>
+             <Button variant="outline" className="w-full mt-8 h-12 text-xs font-black uppercase tracking-widest border-primary/10 text-primary hover:bg-primary/5">View All Badges</Button>
           </div>
 
           {/* Tips Section */}
-          <div className="bg-background-dark p-6 md:p-10 rounded-[3.5rem] relative overflow-hidden group shadow-2xl">
+          <div className="bg-background-dark p-4 md:p-8 rounded-[2rem] relative overflow-hidden group shadow-2xl">
              <div className="absolute inset-0 bg-premium-gradient opacity-10"></div>
              <Info className="w-8 h-8 text-primary-light mb-6 relative z-10" />
              <h4 className="text-lg font-black text-white mb-4 tracking-tight relative z-10">Pro Learning Tip</h4>
