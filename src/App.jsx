@@ -15,6 +15,7 @@ import Pricing from './pages/Pricing';
 import BusinessLanding from './pages/BusinessLanding';
 import InformationPage from './pages/InformationPage';
 import VideoLearning from './pages/VideoLearning';
+import SearchPage from "./pages/SearchPage";
 
 // Placeholder components for pages not yet fully implemented
 const NotFound = () => (
@@ -38,6 +39,10 @@ function App() {
           <Route path="business" element={<BusinessLanding />} />
           <Route path="course/:id" element={<CourseDetail />} />
           <Route path="category/:id" element={<LandingPage />} />
+          <Route
+            path="/search"
+            element={<SearchPage />}
+          />
           <Route path="careers" element={<InformationPage title="Careers" />} />
           <Route path="blog" element={<InformationPage title="Blog" />} />
           <Route path="help" element={<InformationPage title="Help and Support" />} />
@@ -45,17 +50,17 @@ function App() {
           <Route path="privacy" element={<InformationPage title="Privacy Policy" />} />
           <Route path="teach" element={<InformationPage title="Teach on UAcademy" />} />
         </Route>
-        
+
         {/* Auth Routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        
+
         {/* Learning Player (Fullscreen) */}
         <Route path="/learn/:courseId" element={<VideoLearning />} />
-        
+
         <Route path="/my-learning" element={<Navigate to="/dashboard/MyLearning" replace />} />
         <Route path="/certificates" element={<Navigate to="/dashboard/certificates" replace />} />
-        
+
         {/* Dashboard Routes */}
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<Navigate to="/dashboard/student" replace />} />
@@ -74,7 +79,7 @@ function App() {
 import SearchPage from "./pages/SearchPage";
 
 <Route
-path="/search"
-element={<SearchPage/>}
+  path="/search"
+  element={<SearchPage />}
 />
 export default App;

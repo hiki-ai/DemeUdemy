@@ -1,23 +1,39 @@
 import { Search, Mic } from "lucide-react";
+import { useState } from "react";
 
 export default function SearchPage() {
 
-const categories=[
-"Praja Info",
-"English Speaking",
-"Youtube",
-"Instagram",
-"Business",
-"Part Time Income",
-"Mobile Tricks",
-"View All"
+const [query,setQuery]=useState("");
+
+const items=[
+{name:"Youtube",link:"https://youtube.com"},
+{name:"Instagram",link:"https://instagram.com"},
+{name:"English Speaking",link:"/english"},
+{name:"Praja Info",link:"/praja"},
+{name:"Business",link:"/business"},
+{name:"Part Time Income",link:"/income"},
+{name:"Mobile Tricks",link:"/mobile"},
+{name:"Courses",link:"/courses"}
 ];
+
+
+const filtered=
+items.filter(item=>
+item.name
+.toLowerCase()
+.includes(query.toLowerCase())
+);
 
 return(
 
-<div className="bg-black min-h-screen text-white p-5">
+<div className="
+bg-black
+min-h-screen
+text-white
+p-5
+">
 
-{/* Search */}
+{/* SEARCH */}
 
 <div className="flex gap-3">
 
@@ -35,7 +51,12 @@ gap-3
 <Search/>
 
 <input
+value={query}
+onChange={(e)=>
+setQuery(e.target.value)
+}
 placeholder="Search Here"
+
 className="
 bg-transparent
 outline-none
@@ -45,10 +66,11 @@ flex-1
 
 </div>
 
+
 <button className="
 bg-[#1e1e1e]
-p-4
 rounded-2xl
+p-4
 ">
 
 <Mic/>
@@ -59,38 +81,28 @@ rounded-2xl
 
 
 
-{/* Categories */}
+{/* RESULTS */}
 
-<div className="
-grid
-grid-cols-4
-gap-6
-mt-10
-">
+<div className="mt-8 space-y-4">
 
-{categories.map(item=>(
+{filtered.map(item=>(
 
-<div
-key={item}
-className="text-center"
+<a
+key={item.name}
+href={item.link}
+
+className="
+block
+bg-[#1e1e1e]
+rounded-xl
+p-4
+hover:bg-[#2a2a2a]
+"
 >
 
-<div className="
-w-20
-h-20
-bg-[#1e1e1e]
-rounded-full
-mx-auto
-mb-2
-"/>
+{item.name}
 
-<p className="text-sm">
-
-{item}
-
-</p>
-
-</div>
+</a>
 
 ))}
 
