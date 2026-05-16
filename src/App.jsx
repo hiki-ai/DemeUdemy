@@ -22,7 +22,7 @@ import BusinessLanding from './pages/BusinessLanding';
 import InformationPage from './pages/InformationPage';
 
 import VideoLearning from './pages/VideoLearning';
-import SearchPage from './pages/SearchPage';
+// import SearchPage from './pages/SearchPage';
 
 
 
