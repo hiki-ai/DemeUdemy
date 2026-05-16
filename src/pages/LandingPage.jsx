@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import {
   Home,
   Search,
@@ -21,15 +20,17 @@ const categories = [
 
 export default function LandingPage() {
   return (
-    <div className="bg-white min-h-screen pb-24 overflow-x-hidden">
+    <div className="bg-white min-h-screen overflow-x-hidden pb-24">
 
-      {/* TOP OFFER BAR */}
+      {/* MOBILE TOP BAR */}
+
       <div className="bg-yellow-100 py-3 text-center text-sm font-medium">
         Get skills that boost careers
       </div>
 
 
       {/* HERO */}
+
       <section className="p-4">
 
         <div className="bg-gray-100 rounded-lg p-6">
@@ -38,18 +39,17 @@ export default function LandingPage() {
             Thrive in your career
           </h1>
 
-          <p className="text-gray-600 mb-6">
-            Access curated courses for in-demand roles.
+          <p className="text-gray-600 mb-5">
+            Access curated courses for demand roles.
           </p>
 
           <button
             className="
             bg-purple-700
             text-white
+            rounded
             w-full
             py-3
-            rounded
-            font-semibold
             "
           >
             Try Personal Plan
@@ -60,8 +60,6 @@ export default function LandingPage() {
       </section>
 
 
-
-      {/* SECTION COMPONENT */}
 
       <Section
         title="Top courses in"
@@ -75,16 +73,12 @@ export default function LandingPage() {
 
         <div className="flex justify-between">
 
-          <h2 className="font-bold text-2xl">
-
+          <h2 className="text-2xl font-bold">
             Categories
-
           </h2>
 
           <span className="text-purple-700">
-
             See all
-
           </span>
 
         </div>
@@ -92,10 +86,10 @@ export default function LandingPage() {
 
         <div className="flex gap-3 overflow-x-auto mt-5 no-scrollbar">
 
-          {categories.map((item) => (
+          {categories.map((cat) => (
 
             <button
-              key={item}
+              key={cat}
               className="
               border
               rounded-full
@@ -105,7 +99,7 @@ export default function LandingPage() {
               "
             >
 
-              {item}
+              {cat}
 
             </button>
 
@@ -123,18 +117,8 @@ export default function LandingPage() {
       />
 
       <Section
-        title="Top courses in"
-        highlight="Development"
-      />
-
-      <Section
         title="Trending"
         highlight="Courses"
-      />
-
-      <Section
-        title="Top courses in"
-        highlight="Personal Development"
       />
 
       <Section
@@ -144,7 +128,64 @@ export default function LandingPage() {
 
 
 
-      {/* FIXED BOTTOM NAVBAR */}
+      {/* FOOTER DESKTOP ONLY */}
+
+      <footer
+        className="
+        hidden
+        lg:block
+        bg-[#071126]
+        text-white
+        mt-20
+        p-12
+        "
+      >
+
+        <div className="grid grid-cols-4 gap-10">
+
+          <div>
+
+            <h3 className="font-bold mb-4">
+              Platform
+            </h3>
+
+            <p>Business</p>
+            <p>Pricing</p>
+            <p>About</p>
+
+          </div>
+
+
+          <div>
+
+            <h3 className="font-bold mb-4">
+              Resources
+            </h3>
+
+            <p>Blog</p>
+            <p>Support</p>
+
+          </div>
+
+
+          <div>
+
+            <h3 className="font-bold mb-4">
+              Legal
+            </h3>
+
+            <p>Terms</p>
+            <p>Privacy</p>
+
+          </div>
+
+        </div>
+
+      </footer>
+
+
+
+      {/* MOBILE FIXED NAVBAR */}
 
       <div
         className="
@@ -152,40 +193,45 @@ export default function LandingPage() {
         bottom-0
         left-0
         right-0
-        h-[65px]
+
         bg-white
         border-t
+        h-[65px]
+
         flex
         justify-around
         items-center
+
         shadow-md
         z-50
+
+        lg:hidden
         "
       >
 
         <NavItem
-          icon={<Home size={22} />}
+          icon={<Home size={20} />}
           text="Featured"
           active
         />
 
         <NavItem
-          icon={<Search size={22} />}
+          icon={<Search size={20} />}
           text="Search"
         />
 
         <NavItem
-          icon={<PlayCircle size={22} />}
+          icon={<PlayCircle size={20} />}
           text="Learning"
         />
 
         <NavItem
-          icon={<Heart size={22} />}
+          icon={<Heart size={20} />}
           text="Wishlist"
         />
 
         <NavItem
-          icon={<User size={22} />}
+          icon={<User size={20} />}
           text="Account"
         />
 
@@ -199,27 +245,32 @@ export default function LandingPage() {
 
 /* SECTION */
 
-function Section({ title, highlight }) {
+function Section({
+  title,
+  highlight
+}) {
+
   return (
 
     <section className="px-4 mt-12">
 
-      <h2 className="font-bold text-2xl mb-5">
+      <h2 className="text-2xl font-bold mb-5">
 
         {title}
 
         <span className="text-purple-700">
 
-          {" "} {highlight}
+          {" "}
+          {highlight}
 
         </span>
 
       </h2>
 
 
-      <div className="flex overflow-x-auto gap-4 no-scrollbar">
+      <div className="flex gap-4 overflow-x-auto no-scrollbar">
 
-        {courses.slice(0, 8).map((course) => (
+        {courses.slice(0, 8).map(course => (
 
           <div
             key={course.id}
@@ -237,6 +288,7 @@ function Section({ title, highlight }) {
       </div>
 
     </section>
+
   );
 }
 
@@ -260,9 +312,8 @@ function NavItem({
       text-xs
 
       ${active
-          ? "text-purple-700"
-          : "text-gray-600"
-        }
+        ? "text-purple-700"
+        : "text-gray-600"}
       `}
     >
 
@@ -277,4 +328,5 @@ function NavItem({
     </button>
 
   );
+
 }
