@@ -41,9 +41,9 @@ const LandingPage = () => {
                   >
                     <h1 className="text-2xl md:text-5xl font-black text-text mb-4 md:mb-6 tracking-tight leading-tight">{slide.title}</h1>
                     <p className="text-sm md:text-lg text-text-secondary font-medium mb-6 md:mb-8 leading-relaxed">{slide.subtitle}</p>
-                    <Link to={slide.link}>
-                       <Button size="lg" className="h-14 px-10 text-base">{slide.cta}</Button>
-                    </Link>
+                      <Link to={slide.link}>
+                        <Button size="lg" className="w-full sm:w-auto h-12 md:h-14 px-6 text-sm">{slide.cta}</Button>
+                      </Link>
                   </motion.div>
                 </div>
               </div>
@@ -79,12 +79,12 @@ const LandingPage = () => {
             <p className="text-xl text-text-secondary mb-12 max-w-3xl">Choose from over 210,000 online video courses with new additions published every month</p>
             
             {/* Category Tabs (Simulated) */}
-            <div className="flex flex-wrap gap-8 mb-12 border-b border-border pb-4 overflow-x-auto no-scrollbar">
-               {['Web Development', 'AI & Machine Learning', 'Data Science', 'Design', 'Marketing'].map((tab, i) => (
-                 <button key={tab} className={`text-base font-black uppercase tracking-widest pb-4 whitespace-nowrap transition-all border-b-2 ${i === 0 ? 'border-primary text-text' : 'border-transparent text-text-muted hover:text-text'}`}>
-                    {tab}
-                 </button>
-               ))}
+            <div className="flex gap-3 mb-6 pb-4 overflow-x-auto no-scrollbar -mx-3 px-3">
+              {['Web Development', 'AI & Machine Learning', 'Data Science', 'Design', 'Marketing', 'Business', 'Personal Development'].map((tab, i) => (
+                <button key={tab} className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-black tracking-tight whitespace-nowrap transition-all ${i === 0 ? 'bg-primary text-white' : 'bg-white border border-border text-text-muted hover:bg-primary/5 hover:text-text'}`}>
+                  {tab}
+                </button>
+              ))}
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -116,12 +116,14 @@ const LandingPage = () => {
                      <h2 className="text-4xl md:text-6xl font-black text-white leading-tight tracking-tight">Accelerate your <span className="bg-clip-text text-transparent bg-premium-gradient">career</span> with AI.</h2>
                      <p className="text-xl text-white/60 font-medium leading-relaxed">Our AI-powered platform identifies your skills gaps and creates a personalized learning roadmap to get you to your goal faster.</p>
                      <div className="flex flex-wrap gap-6 pt-4">
-                        <Link to="/signup">
-                           <Button size="lg" className="h-16 px-12 text-lg shadow-violet-glow">Try AI Tutor Free</Button>
-                        </Link>
-                        <Link to="/help">
-                           <Button variant="outline" size="lg" className="h-16 px-12 text-lg border-white/20 text-white hover:bg-white/10">How it works</Button>
-                        </Link>
+                        <div className="w-full sm:w-auto flex gap-4 flex-col sm:flex-row">
+                          <Link to="/signup" className="w-full sm:w-auto">
+                            <Button size="lg" className="w-full sm:w-auto h-16 px-12 text-lg shadow-violet-glow">Try AI Tutor Free</Button>
+                          </Link>
+                          <Link to="/help" className="w-full sm:w-auto">
+                            <Button variant="outline" size="lg" className="w-full sm:w-auto h-16 px-12 text-lg border-white/20 text-white hover:bg-white/10">How it works</Button>
+                          </Link>
+                        </div>
                      </div>
                   </motion.div>
                   <motion.div
@@ -248,7 +250,7 @@ const LandingPage = () => {
                 </Link>
              </div>
              <div className="flex-1">
-                <img src="https://images.unsplash.com/photo-1544717297-fa154daaf762?w=1000&q=80" className="rounded-[3rem] shadow-premium" alt="Teach" />
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRgRHI9TQnekJFvER6PG-YJUfwk3aXlwJEAQ&s" className="rounded-[3rem] shadow-premium" alt="Teach" />
              </div>
           </div>
         </div>

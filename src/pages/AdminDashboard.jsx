@@ -51,7 +51,7 @@ const AdminDashboard = () => {
               </div>
               <div>
                 <div className="text-[10px] font-black text-text-muted uppercase tracking-[0.2em] mb-1">{stat.label}</div>
-                <div className="text-3xl font-black text-text">{stat.value}</div>
+                <div className="text-2xl md:text-3xl font-black text-text">{stat.value}</div>
                 <div className={`text-[10px] font-bold mt-2 ${stat.color} uppercase tracking-widest`}>{stat.status}</div>
               </div>
             </div>

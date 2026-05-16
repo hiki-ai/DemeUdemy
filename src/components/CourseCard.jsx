@@ -30,7 +30,7 @@ const CourseCard = ({ course }) => {
 
         {/* Content */}
         <div className="flex-1 flex flex-col">
-          <h3 className="text-[15px] font-bold text-text leading-tight mb-1 line-clamp-2 group-hover:text-primary transition-colors">
+                <h3 className="text-sm md:text-lg font-bold text-text leading-tight mb-1 line-clamp-2 group-hover:text-primary transition-colors">
             {course.title}
           </h3>
           <div className="text-[12px] text-text-secondary mb-1">
@@ -50,18 +50,18 @@ const CourseCard = ({ course }) => {
             <span className="text-[12px] text-text-muted font-medium">({course.reviews.toLocaleString()})</span>
           </div>
 
-          <div className="flex items-center gap-2 mb-3">
-            <span className="text-lg font-black text-text">${course.price}</span>
-            <span className="text-[13px] text-text-muted line-through font-medium">${course.originalPrice}</span>
-          </div>
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-lg md:text-2xl font-black text-text">${course.price}</span>
+                  <span className="text-[12px] text-text-muted line-through font-medium">${course.originalPrice}</span>
+                </div>
 
           <div className="flex flex-wrap gap-2 mt-auto">
             {course.bestseller && (
-              <span className="px-2.5 py-1 bg-[#eceb98] text-[#3d3c0a] text-[10px] font-black uppercase tracking-wider rounded-sm">
+                    <span className="px-3 py-1 bg-[#eceb98] text-[#3d3c0a] text-[10px] font-black uppercase tracking-wider rounded-sm">
                 Bestseller
               </span>
             )}
-            <span className="px-2.5 py-1 bg-primary/5 text-primary text-[10px] font-black uppercase tracking-wider rounded-sm border border-primary/10">
+                  <span className="px-3 py-1 bg-primary/5 text-primary text-[10px] font-black uppercase tracking-wider rounded-sm border border-primary/10">
               {course.level}
             </span>
           </div>
