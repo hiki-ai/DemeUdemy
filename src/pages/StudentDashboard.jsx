@@ -1,254 +1,290 @@
-import { motion } from 'framer-motion';
-import { Play, Award, Clock, Flame, Target, ArrowRight, Zap, Info, Calendar, Users, CheckCircle2 } from 'lucide-react';
-import { courses } from '../data/dummy';
-import Button from '../components/Button';
+import { motion } from "framer-motion";
+import {
+  Play,
+  Award,
+  Clock,
+  Flame,
+  Target,
+  ArrowRight,
+  Zap,
+  Info,
+  Calendar,
+} from "lucide-react";
+
+import { courses } from "../data/dummy";
+import Button from "../components/Button";
 
 const StudentDashboard = () => {
   const continueCourses = courses.slice(0, 2);
-  
-  const stats = [
-    { label: 'Learning Streak', value: '12 Days', icon: <Flame className="w-5 h-5" />, color: 'text-orange-500', bg: 'bg-orange-500/10' },
-    { label: 'Courses Done', value: '08', icon: <Award className="w-5 h-5" />, color: 'text-primary', bg: 'bg-primary/10' },
-    { label: 'Hours Watched', value: '45.5h', icon: <Clock className="w-5 h-5" />, color: 'text-secondary', bg: 'bg-secondary/10' },
-    { label: 'Points Earned', value: '2,450', icon: <Target className="w-5 h-5" />, color: 'text-green-500', bg: 'bg-green-500/10' },
-  ];
 
-  const featuredVideos = [
+  const stats = [
     {
-      id: 1,
-      title: "Mastering React Server Components",
-      duration: "18:45",
-      progress: 65,
-      status: "In Progress",
-      otp: "20160313versASE32321wLC5zZL0d5ydH7ti56QEYA1xrY9kQj3AvRK9jCMNcm4l",
-      playbackInfo: "eyJ2aWRlb0lkIjoiYjFhZGViNWQzMDY0NGJjOWI2YTJkNjJmYzRiMTk4YzMifQ=="
+      label: "Learning Streak",
+      value: "12 Days",
+      icon: <Flame />,
     },
     {
-      id: 2,
-      title: "Advanced Tailwind CSS Layouts",
-      duration: "22:10",
-      progress: 30,
-      status: "New",
-      otp: "20160313versASE3232ikGRIsW5g5doH69BBJlxdKBLPMykUWFqLdH7X1oTIfu1T",
-      playbackInfo: "eyJ2aWRlb0lkIjoiMmMxMGQzMDI1YjY3NDFlYjlmNjI0YjgxYjY1MWMzMzgifQ=="
+      label: "Courses Done",
+      value: "08",
+      icon: <Award />,
     },
     {
-      id: 3,
-      title: "AI Integration in Modern Apps",
-      duration: "45:30",
-      progress: 85,
-      status: "Continuing",
-      otp: "20160313versASE3232CwJiwAz719IYdcMkgv3q3qkCmi0oKxEBzncZZVAQ8sLVq",
-      playbackInfo: "eyJ2aWRlb0lkIjoiMjI5NTNhZjhkNjc2NDk1OWI1ZDUwMDEzYWI3YjdjOGMifQ=="
+      label: "Hours Watched",
+      value: "45h",
+      icon: <Clock />,
     },
     {
-      id: 4,
-      title: "Building Scalable SaaS Platforms",
-      duration: "35:15",
-      progress: 10,
-      status: "Just Started",
-      otp: "20160313versASE32327lw7vKvMZXUcSTD1Wan3JcSIhUv0cQdJrfFITHtm7L67C",
-      playbackInfo: "eyJ2aWRlb0lkIjoiZTY0ODg2ZGZmMzdjNDFkZDk0YzZkOGJjMmFhZTY0N2MifQ=="
-    }
+      label: "Points",
+      value: "2450",
+      icon: <Target />,
+    },
   ];
 
   return (
-    <div className="space-y-8 pb-8">
-      <div className="mx-auto px-4 w-full max-w-[480px] md:max-w-full lg:max-w-none">
-      {/* Stats Row */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-        {stats.map((stat, i) => (
-          <motion.div 
+    <div className="px-3 sm:px-5 md:px-8 py-5 space-y-8">
+
+      {/* ---------- STATS ---------- */}
+
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+
+        {stats.map((item, i) => (
+
+          <motion.div
             key={i}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.1 }}
-            className="bg-white p-3 md:p-6 rounded-lg border border-border relative overflow-hidden group hover:border-primary/20 transition-all duration-500 shadow-sm"
+            initial={{opacity:0}}
+            animate={{opacity:1}}
+            className="bg-white rounded-xl p-4 border shadow-sm"
           >
-            <div className={`absolute top-0 right-0 w-24 h-24 ${stat.bg} blur-3xl -translate-y-1/2 translate-x-1/2`}></div>
-            <div className="flex items-center gap-5 relative z-10">
-              <div className={`w-10 h-10 md:w-14 md:h-14 rounded-2xl ${stat.bg} ${stat.color} flex items-center justify-center shrink-0`}>
-                {stat.icon}
+
+            <div className="flex gap-3 items-center">
+
+              <div className="bg-purple-100 p-2 rounded-lg">
+                {item.icon}
               </div>
+
               <div>
-                <div className="text-[9px] font-black text-text-muted uppercase tracking-[0.16em] mb-1">{stat.label}</div>
-                <div className="text-lg md:text-2xl font-black text-text">{stat.value}</div>
+
+                <p className="text-xs text-gray-500">
+                  {item.label}
+                </p>
+
+                <h2 className="font-bold text-lg">
+                  {item.value}
+                </h2>
+
               </div>
+
             </div>
+
           </motion.div>
+
         ))}
+
       </div>
 
-      <div className="grid lg:grid-cols-3 gap-8">
-        {/* Left Column */}
-        <div className="lg:col-span-2 space-y-12">
-          
-          {/* Featured Learning Videos Section */}
-          <div className="space-y-8">
-            <div className="flex items-center justify-between">
-              <h2 className="text-xl md:text-3xl font-black text-text tracking-tight flex items-center gap-3">
-                  🔥 Featured Learning Videos
-               </h2>
-               <div className="hidden sm:flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 border border-primary/10 text-[10px] font-black text-primary uppercase tracking-widest">
-                  <Zap className="w-3 h-3 fill-current" /> Premium Learning
-               </div>
-            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-               {featuredVideos.map((video, i) => (
-                 <motion.div 
-                   key={video.id}
-                   initial={{ opacity: 0, scale: 0.95 }}
-                   whileInView={{ opacity: 1, scale: 1 }}
-                   viewport={{ once: true }}
-                   transition={{ delay: i * 0.1 }}
-                   className="group relative bg-white/50 backdrop-blur-xl rounded-lg md:rounded-[1.2rem] border border-border overflow-hidden hover:border-primary/40 transition-all duration-500 shadow-sm md:shadow-lg hover:shadow-neon-purple mx-auto max-w-[420px] md:max-w-none"
-                 >
-                    {/* Neon Glow Border Effect */}
-                    <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/20 rounded-[3rem] pointer-events-none transition-all duration-500"></div>
-                    
-                    {/* Video Container */}
-                    <div className="relative overflow-hidden rounded-t-md md:rounded-t-[1rem] bg-black transition-all h-[110px] md:aspect-video md:h-auto">
-                       <iframe 
-                         src={`https://player.vdocipher.com/v2/?otp=${video.otp}&playbackInfo=${video.playbackInfo}`}
-                         className="w-full h-full absolute inset-0"
-                         style={{ border: 0 }}
-                         allowFullScreen={true}
-                         allow="encrypted-media"
-                         title={video.title}
-                       ></iframe>
-                       
-                       {/* Watch Status Badge */}
-                        <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-primary/90 backdrop-blur-md text-[8px] font-black text-white uppercase tracking-widest shadow z-10">
-                          {video.status}
-                       </div>
-                    </div>
+      {/* ---------- FEATURED VIDEOS ---------- */}
 
-                    {/* Content */}
-                    <div className="p-1.5 md:p-4 space-y-2 md:space-y-3 bg-gradient-to-b from-transparent to-primary/5">
-                       <div className="flex justify-between items-start">
-                              <h3 className="text-sm md:text-base font-black text-text leading-tight line-clamp-2 group-hover:text-primary transition-colors">
-                             {video.title}
-                          </h3>
-                          <div className="flex items-center gap-1.5 text-text-muted font-black text-[9px] uppercase tracking-widest shrink-0 mt-1">
-                             <Clock className="w-3.5 h-3.5" /> {video.duration}
-                          </div>
-                       </div>
+      <div>
 
-                          <div className="space-y-2">
-                          <div className="flex justify-between text-[9px] font-black text-text-muted uppercase tracking-widest">
-                             <span>Course Progress</span>
-                             <span className="text-primary">{video.progress}%</span>
-                          </div>
-                          <div className="h-1 w-full bg-background-light rounded-full overflow-hidden shadow-inner">
-                             <motion.div 
-                               initial={{ width: 0 }}
-                               whileInView={{ width: `${video.progress}%` }}
-                               transition={{ duration: 1.5, delay: 0.5 }}
-                               className="h-full bg-premium-gradient shadow-violet-glow relative"
-                             >
-                                <div className="absolute inset-0 bg-white/20 animate-pulse"></div>
-                             </motion.div>
-                          </div>
-                       </div>
+        <div className="flex justify-between mb-4">
 
-                               <Button className="w-full py-1.5 h-8 text-[10px] font-black uppercase tracking-[0.12em] group-hover:scale-[1.02]">
-                          Continue Learning <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                       </Button>
-                    </div>
-                 </motion.div>
-                 ))}
-            </div>
+          <h2 className="font-bold text-xl">
+            🔥 Featured Videos
+          </h2>
+
+          <div className="hidden md:flex text-xs">
+            <Zap size={15}/>
+            Premium
           </div>
 
-          <div className="flex items-center justify-between pt-6">
-            <h2 className="text-xl md:text-3xl font-black text-text tracking-tight">Continue Course Learning</h2>
-            <button className="text-primary text-xs md:text-sm font-black flex items-center gap-2 hover:gap-3 transition-all uppercase tracking-widest">
-              My Library <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
-
-            <div className="grid md:grid-cols-2 gap-4 md:gap-8">
-            {continueCourses.map((course, i) => (
-              <motion.div 
-                key={course.id}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-white p-2 md:p-3 rounded-lg border border-border flex gap-3 items-center group hover:border-primary/20 hover:shadow-glass transition-all duration-500"
-              >
-                <div className="w-14 h-14 md:w-28 md:h-20 rounded-2xl overflow-hidden relative shrink-0">
-                  <img src={course.thumbnail} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Course" />
-                  <div className="absolute inset-0 bg-text/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <Play className="w-8 h-8 text-white fill-current" />
-                  </div>
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-sm md:text-base font-black text-text mb-1 truncate group-hover:text-primary transition-colors tracking-tight leading-none">{course.title}</h3>
-                  <div className="flex justify-between text-[9px] md:text-[10px] text-text-muted mb-2 font-black uppercase tracking-tight">
-                    <span>{course.progress}% Complete</span>
-                    <span className="hidden sm:inline">12/45 Lessons</span>
-                  </div>
-                  <div className="h-1 w-full bg-background-light rounded-full overflow-hidden shadow-inner">
-                    <motion.div 
-                      initial={{ width: 0 }}
-                      animate={{ width: `${course.progress}%` }}
-                      transition={{ duration: 1.5, delay: 0.5 }}
-                      className="h-full bg-premium-gradient shadow-violet-glow"
-                    ></motion.div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
         </div>
 
-        {/* Right Column */}
-        <div className="space-y-12">
-          {/* Calendar Widget */}
-             <div className="bg-white p-3 md:p-8 rounded-lg md:rounded-[2rem] border border-border shadow-sm text-center relative overflow-hidden group">
-             <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 blur-2xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
-             <Calendar className="w-10 h-10 text-primary mx-auto mb-6" />
-             <h3 className="text-xl font-black text-text mb-2 tracking-tight">Daily Goal</h3>
-             <p className="text-sm text-text-secondary font-medium mb-8">You're 2 hours away from reaching your weekly target.</p>
-             <div className="flex justify-center gap-3">
-                {[1, 2, 3, 4, 5, 6, 7].map(d => (
-                  <div key={d} className={`w-8 h-8 rounded-lg flex items-center justify-center text-[10px] font-black ${d <= 4 ? 'bg-primary text-white shadow-violet-glow' : 'bg-background-light text-text-muted'}`}>{d}</div>
-                ))}
-             </div>
-          </div>
 
-          {/* Achievement Badges */}
-             <div className="bg-white p-2 md:p-8 rounded-lg md:rounded-[2rem] border border-border shadow-sm mx-auto max-w-[420px] md:max-w-none">
-             <div className="flex items-center justify-between mb-10">
-               <h3 className="text-lg font-black text-text tracking-tight">Recent Badges</h3>
-               <Award className="w-5 h-5 text-primary" />
-             </div>
-             <div className="grid grid-cols-3 gap-6">
-                {[1, 2, 3].map(i => (
-                  <motion.div 
-                    key={i} 
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    className="aspect-square rounded-xl bg-background-light border border-border flex items-center justify-center text-primary hover:border-primary/30 transition-all cursor-help group shadow-sm"
-                  >
-                    <Award className="w-6 h-6 group-hover:scale-110 transition-transform" />
-                  </motion.div>
-                ))}
-             </div>
-             <Button variant="outline" className="w-full mt-6 h-9 text-xs font-black uppercase tracking-widest border-primary/10 text-primary hover:bg-primary/5">View All Badges</Button>
-          </div>
+        <div className="grid md:grid-cols-2 gap-5">
 
-          {/* Tips Section */}
-          <div className="bg-background-dark p-2 md:p-8 rounded-lg md:rounded-[2rem] relative overflow-hidden group shadow-2xl mx-auto max-w-[420px] md:max-w-none">
-             <div className="absolute inset-0 bg-premium-gradient opacity-10"></div>
-             <Info className="w-8 h-8 text-primary-light mb-6 relative z-10" />
-             <h4 className="text-base font-black text-white mb-3 tracking-tight relative z-10">Pro Learning Tip</h4>
-             <p className="text-sm text-white/60 leading-relaxed font-medium mb-6 relative z-10">"Batching your study sessions into 45-minute blocks increases retention by 30%."</p>
-             <button className="text-[10px] font-black text-primary-light uppercase tracking-[0.2em] underline underline-offset-8 relative z-10 hover:text-white transition-colors">Efficiency Guide</button>
-          </div>
+          {[1,2,3].map((video)=>(
+
+            <div
+            key={video}
+            className="bg-white rounded-2xl overflow-hidden shadow border"
+            >
+
+              {/* Responsive iframe */}
+
+              <div className="relative w-full pt-[56.25%]">
+
+                <iframe
+                className="absolute inset-0 w-full h-full"
+                src=""
+                allowFullScreen
+                />
+
+              </div>
+
+
+              <div className="p-4">
+
+                <h3 className="font-semibold text-sm sm:text-base">
+
+                  React Full Course
+
+                </h3>
+
+
+                <div className="flex justify-between mt-3 text-sm">
+
+                  <span>65%</span>
+
+                  <span>18 mins</span>
+
+                </div>
+
+
+                <div className="bg-gray-200 h-2 rounded-full mt-2">
+
+                  <div
+                  className="bg-purple-500 h-2 rounded-full"
+                  style={{width:"65%"}}
+                  />
+
+                </div>
+
+
+                <Button className="w-full mt-4">
+
+                  Continue
+
+                  <ArrowRight size={15}/>
+
+                </Button>
+
+              </div>
+
+            </div>
+
+          ))}
+
         </div>
+
       </div>
+
+
+      {/* ---------- CONTINUE LEARNING ---------- */}
+
+      <div>
+
+        <h2 className="font-bold text-xl mb-4">
+
+          Continue Learning
+
+        </h2>
+
+        <div className="space-y-4">
+
+          {continueCourses.map((course)=>(
+
+            <div
+            key={course.id}
+            className="bg-white border rounded-xl p-3 flex gap-3"
+            >
+
+              <img
+              src={course.thumbnail}
+              className="w-20 h-20 rounded-lg object-cover"
+              />
+
+              <div className="flex-1">
+
+                <h3 className="font-semibold text-sm">
+
+                  {course.title}
+
+                </h3>
+
+                <p className="text-xs text-gray-500">
+
+                  {course.progress}% Complete
+
+                </p>
+
+
+                <div className="bg-gray-200 h-2 mt-2 rounded-full">
+
+                  <div
+                  style={{
+                    width:`${course.progress}%`
+                  }}
+                  className="bg-purple-500 h-2 rounded-full"
+                  />
+
+                </div>
+
+              </div>
+
+            </div>
+
+          ))}
+
+        </div>
+
       </div>
+
+
+      {/* ---------- RIGHT SIDEBAR -> MOBILE STACK ---------- */}
+
+      <div className="space-y-4">
+
+        <div className="bg-white p-5 rounded-xl shadow">
+
+          <Calendar className="mx-auto"/>
+
+          <h3 className="font-bold text-center mt-3">
+
+            Daily Goal
+
+          </h3>
+
+          <p className="text-sm text-center">
+
+            2 hrs left
+
+          </p>
+
+        </div>
+
+
+        <div className="bg-white p-5 rounded-xl">
+
+          <h3 className="font-bold">
+
+            Recent Badges
+
+          </h3>
+
+        </div>
+
+
+        <div className="bg-black text-white p-5 rounded-xl">
+
+          <Info />
+
+          <h3 className="font-bold mt-3">
+
+            Pro Tip
+
+          </h3>
+
+          <p className="text-sm opacity-70">
+
+            Study 45 mins + break
+
+          </p>
+
+        </div>
+
+      </div>
+
     </div>
   );
 };
