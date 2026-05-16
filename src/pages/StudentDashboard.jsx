@@ -53,7 +53,7 @@ const StudentDashboard = () => {
   ];
 
   return (
-    <div className="space-y-12 pb-12">
+    <div className="space-y-8 pb-8">
       {/* Stats Row */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
         {stats.map((stat, i) => (
@@ -62,30 +62,30 @@ const StudentDashboard = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1 }}
-            className="bg-white p-4 md:p-6 rounded-[1.5rem] border border-border relative overflow-hidden group hover:border-primary/20 transition-all duration-500 shadow-sm"
+            className="bg-white p-3 md:p-6 rounded-lg border border-border relative overflow-hidden group hover:border-primary/20 transition-all duration-500 shadow-sm"
           >
             <div className={`absolute top-0 right-0 w-24 h-24 ${stat.bg} blur-3xl -translate-y-1/2 translate-x-1/2`}></div>
             <div className="flex items-center gap-5 relative z-10">
-              <div className={`w-12 h-12 md:w-14 md:h-14 rounded-2xl ${stat.bg} ${stat.color} flex items-center justify-center shrink-0`}>
+              <div className={`w-10 h-10 md:w-14 md:h-14 rounded-2xl ${stat.bg} ${stat.color} flex items-center justify-center shrink-0`}>
                 {stat.icon}
               </div>
               <div>
-                <div className="text-[10px] font-black text-text-muted uppercase tracking-[0.2em] mb-1">{stat.label}</div>
-                <div className="text-xl md:text-3xl font-black text-text">{stat.value}</div>
+                <div className="text-[9px] font-black text-text-muted uppercase tracking-[0.16em] mb-1">{stat.label}</div>
+                <div className="text-lg md:text-2xl font-black text-text">{stat.value}</div>
               </div>
             </div>
           </motion.div>
         ))}
       </div>
 
-      <div className="grid lg:grid-cols-3 gap-12">
+      <div className="grid lg:grid-cols-3 gap-8">
         {/* Left Column */}
         <div className="lg:col-span-2 space-y-12">
           
           {/* Featured Learning Videos Section */}
           <div className="space-y-8">
             <div className="flex items-center justify-between">
-               <h2 className="text-2xl md:text-3xl font-black text-text tracking-tight flex items-center gap-3">
+              <h2 className="text-xl md:text-3xl font-black text-text tracking-tight flex items-center gap-3">
                   🔥 Featured Learning Videos
                </h2>
                <div className="hidden sm:flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 border border-primary/10 text-[10px] font-black text-primary uppercase tracking-widest">
@@ -93,7 +93,7 @@ const StudentDashboard = () => {
                </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                {featuredVideos.map((video, i) => (
                  <motion.div 
                    key={video.id}
@@ -126,7 +126,7 @@ const StudentDashboard = () => {
                     {/* Content */}
                     <div className="p-1.5 md:p-4 space-y-2 md:space-y-3 bg-gradient-to-b from-transparent to-primary/5">
                        <div className="flex justify-between items-start">
-                            <h3 className="text-sm md:text-base font-black text-text leading-tight line-clamp-2 group-hover:text-primary transition-colors">
+                              <h3 className="text-sm md:text-base font-black text-text leading-tight line-clamp-2 group-hover:text-primary transition-colors">
                              {video.title}
                           </h3>
                           <div className="flex items-center gap-1.5 text-text-muted font-black text-[9px] uppercase tracking-widest shrink-0 mt-1">
@@ -160,8 +160,8 @@ const StudentDashboard = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-between pt-8">
-            <h2 className="text-2xl md:text-3xl font-black text-text tracking-tight">Continue Course Learning</h2>
+          <div className="flex items-center justify-between pt-6">
+            <h2 className="text-xl md:text-3xl font-black text-text tracking-tight">Continue Course Learning</h2>
             <button className="text-primary text-xs md:text-sm font-black flex items-center gap-2 hover:gap-3 transition-all uppercase tracking-widest">
               My Library <ArrowRight className="w-4 h-4" />
             </button>
@@ -174,9 +174,9 @@ const StudentDashboard = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-white p-2 md:p-4 rounded-lg md:rounded-[1.5rem] border border-border flex gap-3 items-center group hover:border-primary/20 hover:shadow-glass transition-all duration-500"
+                className="bg-white p-2 md:p-3 rounded-lg border border-border flex gap-3 items-center group hover:border-primary/20 hover:shadow-glass transition-all duration-500"
               >
-                <div className="w-16 h-16 md:w-28 md:h-20 rounded-2xl overflow-hidden relative shrink-0">
+                <div className="w-14 h-14 md:w-28 md:h-20 rounded-2xl overflow-hidden relative shrink-0">
                   <img src={course.thumbnail} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Course" />
                   <div className="absolute inset-0 bg-text/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                     <Play className="w-8 h-8 text-white fill-current" />
