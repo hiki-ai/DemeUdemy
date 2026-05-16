@@ -120,10 +120,10 @@ function App() {
 
           {/* SEARCH PAGE */}
 
-          <Route
+          {/* <Route
             path="search"
-            element={<SearPage />}
-          />
+            element={<SearchPage />}
+          /> */}
 
 
           {/* LEARNING */}
