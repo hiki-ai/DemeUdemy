@@ -102,13 +102,13 @@ const StudentDashboard = () => {
                    whileInView={{ opacity: 1, scale: 1 }}
                    viewport={{ once: true }}
                    transition={{ delay: i * 0.1 }}
-                   className="group relative bg-white/50 backdrop-blur-xl rounded-lg md:rounded-[1.2rem] border border-border overflow-hidden hover:border-primary/40 transition-all duration-500 shadow-sm md:shadow-lg hover:shadow-neon-purple"
+                   className="group relative bg-white/50 backdrop-blur-xl rounded-lg md:rounded-[1.2rem] border border-border overflow-hidden hover:border-primary/40 transition-all duration-500 shadow-sm md:shadow-lg hover:shadow-neon-purple mx-auto max-w-[420px] md:max-w-none"
                  >
                     {/* Neon Glow Border Effect */}
                     <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/20 rounded-[3rem] pointer-events-none transition-all duration-500"></div>
                     
                     {/* Video Container */}
-                    <div className="relative overflow-hidden rounded-t-md md:rounded-t-[1rem] bg-black transition-all h-[130px] md:aspect-video md:h-auto">
+                    <div className="relative overflow-hidden rounded-t-md md:rounded-t-[1rem] bg-black transition-all h-[110px] md:aspect-video md:h-auto">
                        <iframe 
                          src={`https://player.vdocipher.com/v2/?otp=${video.otp}&playbackInfo=${video.playbackInfo}`}
                          className="w-full h-full absolute inset-0"
@@ -119,7 +119,7 @@ const StudentDashboard = () => {
                        ></iframe>
                        
                        {/* Watch Status Badge */}
-                       <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-primary/90 backdrop-blur-md text-[8px] font-black text-white uppercase tracking-widest shadow-lg z-10">
+                        <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-primary/90 backdrop-blur-md text-[8px] font-black text-white uppercase tracking-widest shadow z-10">
                           {video.status}
                        </div>
                     </div>
@@ -157,7 +157,7 @@ const StudentDashboard = () => {
                        </Button>
                     </div>
                  </motion.div>
-               ))}
+                 ))}
             </div>
           </div>
 
@@ -219,31 +219,31 @@ const StudentDashboard = () => {
           </div>
 
           {/* Achievement Badges */}
-             <div className="bg-white p-3 md:p-8 rounded-lg md:rounded-[2rem] border border-border shadow-sm">
+             <div className="bg-white p-2 md:p-8 rounded-lg md:rounded-[2rem] border border-border shadow-sm mx-auto max-w-[420px] md:max-w-none">
              <div className="flex items-center justify-between mb-10">
-                <h3 className="text-xl font-black text-text tracking-tight">Recent Badges</h3>
-                <Award className="w-6 h-6 text-primary" />
+               <h3 className="text-lg font-black text-text tracking-tight">Recent Badges</h3>
+               <Award className="w-5 h-5 text-primary" />
              </div>
              <div className="grid grid-cols-3 gap-6">
                 {[1, 2, 3].map(i => (
                   <motion.div 
                     key={i} 
                     whileHover={{ scale: 1.1, rotate: 5 }}
-                    className="aspect-square rounded-2xl bg-background-light border border-border flex items-center justify-center text-primary hover:border-primary/30 transition-all cursor-help group shadow-sm"
+                    className="aspect-square rounded-xl bg-background-light border border-border flex items-center justify-center text-primary hover:border-primary/30 transition-all cursor-help group shadow-sm"
                   >
-                    <Award className="w-8 h-8 group-hover:scale-110 transition-transform" />
+                    <Award className="w-6 h-6 group-hover:scale-110 transition-transform" />
                   </motion.div>
                 ))}
              </div>
-             <Button variant="outline" className="w-full mt-6 h-10 text-xs font-black uppercase tracking-widest border-primary/10 text-primary hover:bg-primary/5">View All Badges</Button>
+             <Button variant="outline" className="w-full mt-6 h-9 text-xs font-black uppercase tracking-widest border-primary/10 text-primary hover:bg-primary/5">View All Badges</Button>
           </div>
 
           {/* Tips Section */}
-          <div className="bg-background-dark p-3 md:p-8 rounded-lg md:rounded-[2rem] relative overflow-hidden group shadow-2xl">
+          <div className="bg-background-dark p-2 md:p-8 rounded-lg md:rounded-[2rem] relative overflow-hidden group shadow-2xl mx-auto max-w-[420px] md:max-w-none">
              <div className="absolute inset-0 bg-premium-gradient opacity-10"></div>
              <Info className="w-8 h-8 text-primary-light mb-6 relative z-10" />
-             <h4 className="text-lg font-black text-white mb-4 tracking-tight relative z-10">Pro Learning Tip</h4>
-             <p className="text-sm text-white/60 leading-relaxed font-medium mb-8 relative z-10">"Batching your study sessions into 45-minute blocks increases retention by 30%."</p>
+             <h4 className="text-base font-black text-white mb-3 tracking-tight relative z-10">Pro Learning Tip</h4>
+             <p className="text-sm text-white/60 leading-relaxed font-medium mb-6 relative z-10">"Batching your study sessions into 45-minute blocks increases retention by 30%."</p>
              <button className="text-[10px] font-black text-primary-light uppercase tracking-[0.2em] underline underline-offset-8 relative z-10 hover:text-white transition-colors">Efficiency Guide</button>
           </div>
         </div>
