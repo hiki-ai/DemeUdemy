@@ -25,7 +25,7 @@ const LandingPage = () => {
             prevEl: '.hero-prev',
             nextEl: '.hero-next',
           }}
-          className="h-[400px] md:h-[500px] lg:h-[600px]"
+          className="h-[280px] md:h-[500px] lg:h-[600px]"
         >
           {heroSlides.map((slide, i) => (
             <SwiperSlide key={i}>
@@ -37,10 +37,10 @@ const LandingPage = () => {
                     initial={{ x: -30, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="bg-white p-8 md:p-12 rounded-lg shadow-premium max-w-lg border border-border"
+                    className="bg-white p-6 md:p-12 rounded-lg shadow-premium max-w-full sm:max-w-md border border-border"
                   >
-                    <h1 className="text-3xl md:text-5xl font-black text-text mb-6 tracking-tight leading-tight">{slide.title}</h1>
-                    <p className="text-base md:text-lg text-text-secondary font-medium mb-8 leading-relaxed">{slide.subtitle}</p>
+                    <h1 className="text-2xl md:text-5xl font-black text-text mb-4 md:mb-6 tracking-tight leading-tight">{slide.title}</h1>
+                    <p className="text-sm md:text-lg text-text-secondary font-medium mb-6 md:mb-8 leading-relaxed">{slide.subtitle}</p>
                     <Link to={slide.link}>
                        <Button size="lg" className="h-14 px-10 text-base">{slide.cta}</Button>
                     </Link>
