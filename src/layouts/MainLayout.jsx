@@ -512,7 +512,7 @@ ${location.pathname==="/"?"text-purple-700":"text-gray-600"}
 </Link>
 
 
-<Link
+{/* <Link
 to="/search"
 className={`flex flex-col items-center text-xs
 ${location.pathname==="/search"
@@ -524,7 +524,7 @@ ${location.pathname==="/search"
 <Search size={20}/>
 <span>Search</span>
 
-</Link>
+</Link> */}
 
 
 <Link
