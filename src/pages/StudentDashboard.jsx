@@ -54,6 +54,7 @@ const StudentDashboard = () => {
 
   return (
     <div className="space-y-8 pb-8">
+      <div className="mx-auto px-4 w-full max-w-[480px] md:max-w-full lg:max-w-none">
       {/* Stats Row */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
         {stats.map((stat, i) => (
@@ -246,6 +247,7 @@ const StudentDashboard = () => {
              <button className="text-[10px] font-black text-primary-light uppercase tracking-[0.2em] underline underline-offset-8 relative z-10 hover:text-white transition-colors">Efficiency Guide</button>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );
