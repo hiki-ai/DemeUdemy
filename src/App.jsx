@@ -71,5 +71,10 @@ function App() {
     </Router>
   );
 }
+import SearchPage from "./pages/SearchPage";
 
+<Route
+path="/search"
+element={<SearchPage/>}
+/>
 export default App;
