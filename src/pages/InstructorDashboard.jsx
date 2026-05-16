@@ -1,132 +1,409 @@
-import { motion } from 'framer-motion';
-import { DollarSign, Users, Video, Star, Plus, BarChart3, TrendingUp, MessageSquare, Edit3, Eye, Trash2 } from 'lucide-react';
-import Button from '../components/Button';
+import { motion } from "framer-motion";
+import {
+DollarSign,
+Users,
+Video,
+Star,
+Plus,
+BarChart3,
+TrendingUp,
+MessageSquare,
+Edit3,
+Eye,
+Trash2
+} from "lucide-react";
 
-const InstructorDashboard = () => {
-  const stats = [
-    { label: 'Total Revenue', value: '$12,450.00', change: '+12.5%', icon: <DollarSign className="w-5 h-5" />, color: 'text-green-500', bg: 'bg-green-500/10' },
-    { label: 'Total Students', value: '1,240', change: '+8.2%', icon: <Users className="w-5 h-5" />, color: 'text-primary', bg: 'bg-primary/10' },
-    { label: 'Course Ratings', value: '4.9', change: '+0.1', icon: <Star className="w-5 h-5" />, color: 'text-yellow-500', bg: 'bg-yellow-500/10' },
-    { label: 'Watch Time', value: '450h', change: '+15.3%', icon: <Video className="w-5 h-5" />, color: 'text-secondary', bg: 'bg-secondary/10' },
-  ];
+import Button from "../components/Button";
 
-  return (
-    <div className="space-y-12">
-      {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
-        <div>
-          <h2 className="text-3xl font-black text-text tracking-tight mb-2">Instructor Studio</h2>
-          <p className="text-sm text-text-secondary font-medium">Manage your content, analyze performance, and grow your audience.</p>
-        </div>
-        <Button className="h-16 px-10 shadow-violet-glow text-lg">
-          <Plus className="w-6 h-6" /> Create New Course
-        </Button>
-      </div>
+const InstructorDashboard=()=>{
 
-      {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {stats.map((stat, i) => (
-          <motion.div 
-            key={i}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.1 }}
-            className="bg-white p-6 md:p-6 rounded-[1.5rem] border border-border relative overflow-hidden group hover:border-primary/20 transition-all duration-500"
-          >
-            <div className={`absolute top-0 right-0 w-24 h-24 ${stat.bg} blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-700`}></div>
-            <div className="flex flex-col gap-6 relative z-10">
-              <div className="flex items-center justify-between">
-                <div className={`w-14 h-14 rounded-2xl ${stat.bg} ${stat.color} flex items-center justify-center`}>
-                  {stat.icon}
-                </div>
-                <div className={`text-xs font-black px-3 py-1.5 rounded-full ${stat.change.startsWith('+') ? 'bg-green-500/10 text-green-600' : 'bg-red-500/10 text-red-600'}`}>
-                  {stat.change}
-                </div>
-              </div>
-              <div>
-                <div className="text-[10px] font-black text-text-muted uppercase tracking-[0.2em] mb-1">{stat.label}</div>
-                <div className="text-2xl md:text-3xl font-black text-text">{stat.value}</div>
-              </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
+const stats=[
 
-      <div className="grid lg:grid-cols-3 gap-12">
-        {/* Course Table */}
-        <div className="lg:col-span-2 space-y-8">
-          <h3 className="text-2xl font-black text-text tracking-tight">Your Courses</h3>
-          <div className="bg-white border border-border rounded-[3rem] overflow-hidden shadow-sm">
-            <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
-              <table className="w-full text-left">
-              <thead>
-                <tr className="bg-background-light text-[10px] font-black text-text-muted uppercase tracking-[0.2em]">
-                  <th className="px-4 py-4 md:px-10 md:py-6">Course Name</th>
-                  <th className="px-4 py-4 md:px-10 md:py-6">Students</th>
-                  <th className="px-4 py-4 md:px-10 md:py-6">Status</th>
-                  <th className="px-4 py-4 md:px-10 md:py-6">Rating</th>
-                  <th className="px-4 py-4 md:px-10 md:py-6">Actions</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-border">
-                {[1, 2, 3].map((id) => (
-                  <tr key={id} className="group hover:bg-background-light/30 transition-colors">
-                    <td className="px-4 py-6 md:px-10 md:py-8 font-black text-text group-hover:text-primary transition-colors">Advanced Next.js Architecture {id}</td>
-                    <td className="px-4 py-6 md:px-10 md:py-8 text-sm font-bold text-text-secondary">4,520</td>
-                    <td className="px-4 py-6 md:px-10 md:py-8">
-                      <span className="px-4 py-1.5 rounded-full bg-green-500/10 text-green-600 text-[10px] font-black uppercase tracking-widest border border-green-500/20">Published</span>
-                    </td>
-                    <td className="px-4 py-6 md:px-10 md:py-8 flex items-center gap-1.5 font-black text-text">
-                       <Star className="w-4 h-4 text-yellow-400 fill-current" /> 4.9
-                    </td>
-                    <td className="px-4 py-6 md:px-10 md:py-8">
-                      <div className="flex items-center gap-2">
-                         <button className="p-3 hover:bg-primary/10 rounded-xl text-text-muted hover:text-primary transition-all"><Edit3 className="w-4.5 h-4.5" /></button>
-                         <button className="p-3 hover:bg-secondary/10 rounded-xl text-text-muted hover:text-secondary transition-all"><Eye className="w-4.5 h-4.5" /></button>
-                         <button className="p-3 hover:bg-red-500/10 rounded-xl text-text-muted hover:text-red-500 transition-all"><Trash2 className="w-4.5 h-4.5" /></button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
+{
+label:"Revenue",
+value:"$12.4k",
+change:"+12%",
+icon:<DollarSign/>
+},
 
-        {/* Activity Feed */}
-        <div className="space-y-8">
-           <h3 className="text-2xl font-black text-text tracking-tight">Recent Activity</h3>
-           <div className="bg-white p-6 rounded-[2rem] border border-border space-y-8 shadow-sm">
-              {[
-                { type: 'Sale', text: 'New enrollment in "Next.js Architecture"', time: '2 mins ago', icon: <DollarSign className="w-4 h-4" />, color: 'text-green-600', bg: 'bg-green-500/10' },
-                { type: 'Review', text: '5-star review from Priya M.', time: '45 mins ago', icon: <Star className="w-4 h-4" />, color: 'text-yellow-600', bg: 'bg-yellow-500/10' },
-                { type: 'Question', text: 'New question in Module 3', time: '2 hours ago', icon: <MessageSquare className="w-4 h-4" />, color: 'text-primary', bg: 'bg-primary/10' },
-              ].map((activity, i) => (
-                <div key={i} className="flex gap-6 group">
-                   <div className={`w-12 h-12 rounded-2xl ${activity.bg} flex items-center justify-center ${activity.color} shrink-0 group-hover:scale-110 transition-transform`}>
-                      {activity.icon}
-                   </div>
-                   <div>
-                      <div className="text-sm font-black text-text group-hover:text-primary transition-colors leading-snug tracking-tight">{activity.text}</div>
-                      <div className="text-xs text-text-muted mt-2 font-bold uppercase tracking-widest">{activity.time}</div>
-                   </div>
-                </div>
-              ))}
-                <Button variant="outline" className="w-full mt-4 h-12 text-sm uppercase tracking-widest">View Full Activity</Button>
-           </div>
+{
+label:"Students",
+value:"1240",
+change:"+8%",
+icon:<Users/>
+},
 
-           {/* Growth Tips */}
-           <div className="bg-primary/5 p-6 rounded-[2rem] border border-primary/10 relative overflow-hidden group">
-              <TrendingUp className="w-10 h-10 text-primary mb-6 animate-pulse" />
-              <h4 className="text-xl font-black text-text mb-4 tracking-tight">Growth Tip</h4>
-              <p className="text-sm text-text-secondary leading-relaxed font-medium mb-8">Courses with closed captions see 40% higher global enrollment. Consider adding them to your latest course.</p>
-              <button className="text-[10px] font-black text-primary uppercase tracking-[0.2em] underline underline-offset-8">Analyze Reach</button>
-           </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+{
+label:"Rating",
+value:"4.9",
+change:"+0.1",
+icon:<Star/>
+},
+
+{
+label:"Watch Time",
+value:"450h",
+change:"+15%",
+icon:<Video/>
+}
+
+];
+
+
+return(
+
+<div className="px-3 sm:px-5 md:px-8 py-5 space-y-8">
+
+{/* HEADER */}
+
+<div className="flex flex-col md:flex-row gap-4 justify-between">
+
+<div>
+
+<h1 className="text-2xl md:text-4xl font-bold">
+
+Instructor Studio
+
+</h1>
+
+<p className="text-sm text-gray-500">
+
+Manage courses & analytics
+
+</p>
+
+</div>
+
+
+<Button
+className="
+h-10
+px-4
+text-sm
+w-full
+md:w-auto"
+>
+
+<Plus size={18}/>
+
+Create Course
+
+</Button>
+
+</div>
+
+
+
+{/* STATS */}
+
+<div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+
+{stats.map((s,i)=>(
+
+<motion.div
+key={i}
+initial={{opacity:0}}
+animate={{opacity:1}}
+className="
+bg-white
+border
+rounded-xl
+p-4
+shadow-sm"
+>
+
+<div className="flex justify-between">
+
+<div className="bg-purple-100 p-2 rounded-lg">
+
+{s.icon}
+
+</div>
+
+
+<div className="
+text-xs
+bg-green-100
+px-2
+rounded-full">
+
+{s.change}
+
+</div>
+
+</div>
+
+
+<h2 className="mt-3 text-xl font-bold">
+
+{s.value}
+
+</h2>
+
+<p className="text-xs text-gray-500">
+
+{s.label}
+
+</p>
+
+</motion.div>
+
+))}
+
+</div>
+
+
+
+<div className="grid lg:grid-cols-3 gap-6">
+
+
+{/* COURSES */}
+
+<div className="lg:col-span-2">
+
+<h2 className="font-bold text-xl mb-4">
+
+Your Courses
+
+</h2>
+
+
+<div className="space-y-4">
+
+{[1,2,3].map(id=>(
+
+<div
+key={id}
+className="
+bg-white
+border
+rounded-xl
+p-4"
+>
+
+<div className="flex justify-between">
+
+<div>
+
+<h3 className="font-semibold text-sm">
+
+Next.js Course {id}
+
+</h3>
+
+<p className="text-xs text-gray-500">
+
+4520 Students
+
+</p>
+
+</div>
+
+
+<span
+className="
+bg-green-100
+text-green-600
+px-2
+py-1
+rounded-full
+text-xs">
+
+Published
+
+</span>
+
+</div>
+
+
+
+<div className="
+flex
+justify-between
+items-center
+mt-4">
+
+<div className="flex gap-1">
+
+<Star
+size={15}
+fill="currentColor"
+/>
+
+4.9
+
+</div>
+
+
+<div className="flex gap-2">
+
+<button
+className="
+w-8
+h-8
+bg-gray-100
+rounded-lg
+flex
+justify-center
+items-center">
+
+<Edit3 size={16}/>
+
+</button>
+
+
+<button
+className="
+w-8
+h-8
+bg-gray-100
+rounded-lg
+flex
+justify-center
+items-center">
+
+<Eye size={16}/>
+
+</button>
+
+
+<button
+className="
+w-8
+h-8
+bg-red-100
+rounded-lg
+flex
+justify-center
+items-center">
+
+<Trash2 size={16}/>
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+))}
+
+</div>
+
+</div>
+
+
+
+{/* ACTIVITY */}
+
+<div>
+
+<h2 className="font-bold text-xl mb-4">
+
+Recent Activity
+
+</h2>
+
+
+<div className="
+bg-white
+border
+rounded-xl
+p-5
+space-y-5"
+>
+
+{[
+"New enrollment",
+"5 star review",
+"New question"
+
+].map((x,i)=>(
+
+<div
+key={i}
+className="flex gap-3"
+>
+
+<div className="
+bg-purple-100
+p-2
+rounded-lg">
+
+<MessageSquare/>
+
+</div>
+
+
+<div>
+
+<h3 className="text-sm font-semibold">
+
+{x}
+
+</h3>
+
+<p className="text-xs text-gray-500">
+
+2 hrs ago
+
+</p>
+
+</div>
+
+</div>
+
+))}
+
+
+<Button
+variant="outline"
+className="w-full h-10"
+>
+
+View Activity
+
+</Button>
+
+</div>
+
+
+
+{/* Growth Tip */}
+
+<div
+className="
+bg-purple-50
+rounded-xl
+p-5
+mt-5"
+>
+
+<TrendingUp/>
+
+<h2 className="font-bold mt-3">
+
+Growth Tip
+
+</h2>
+
+<p className="text-sm text-gray-500">
+
+Add subtitles for more students.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+)
+
+}
 
 export default InstructorDashboard;
