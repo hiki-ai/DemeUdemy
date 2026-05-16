@@ -17,6 +17,10 @@
   }
 }
 
+.no-scrollbar::-webkit-scrollbar{
+display:none;
+}
+
 .hero {
   position: relative;
 

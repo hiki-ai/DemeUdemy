@@ -1,250 +1,337 @@
 import {
-Search,
-Mic
+  Search,
+  Mic
 } from "lucide-react";
 
 import { useState } from "react";
-
 import { courses } from "../data/dummy";
 
-export default function SearchPage(){
-
-const [query,setQuery]=useState("");
-
-const categories=[
-"Praja Info",
-"English Speaking",
-"Youtube",
-"Instagram",
-"Business",
-"Part Time Income",
-"Mobile Tricks",
-"View All"
-];
+export default function SearchPage() {
 
+  const [query, setQuery] = useState("");
 
-const filtered=courses.filter(course=>
-course.title
-.toLowerCase()
-.includes(
-query.toLowerCase()
-)
-);
+  const categories = [
+    "Praja Info",
+    "English Speaking",
+    "Youtube",
+    "Instagram",
+    "Business",
+    "Part Time Income",
+    "Mobile Tricks",
+    "View All"
+  ];
 
-return(
 
-<div className="
-bg-black
-text-white
-min-h-screen
-p-5
-pb-24
-">
+  const filtered = courses.filter(course =>
+    course.title
+      ?.toLowerCase()
+      .includes(query.toLowerCase())
+  );
 
-{/* SEARCH */}
 
-<div className="flex gap-3">
+  return (
 
-<div className="
-flex-1
-bg-[#1e1e1e]
-rounded-2xl
-p-4
-flex
-items-center
-gap-3
-border
-border-gray-700
-focus-within:border-purple-600
-">
+    <div className="
+    bg-black
+    text-white
+    min-h-screen
+    p-4
+    pb-24
+    ">
 
-<Search/>
 
-<input
-value={query}
-onChange={(e)=>
-setQuery(e.target.value)
-}
-placeholder="Search Here"
+      {/* SEARCH BAR */}
 
-className="
-bg-transparent
-outline-none
-flex-1
-"
-/>
+      <div className="
+      flex
+      gap-2
+      items-center
+      ">
 
-</div>
+        <div
+          className="
+          flex-1
+          min-w-0
 
+          bg-[#1e1e1e]
 
-<button className="
-bg-[#1e1e1e]
-rounded-2xl
-p-4
-">
+          rounded-2xl
 
-<Mic/>
+          px-3
+          py-3
 
-</button>
+          flex
+          items-center
+          gap-2
 
-</div>
+          border
+          border-gray-700
 
+          focus-within:border-purple-600
+          transition
+          "
+        >
 
+          <Search
+            className="
+            w-5
+            h-5
+            text-gray-400
+            shrink-0
+            "
+          />
 
-{/* CATEGORIES */}
+          <input
+            value={query}
+            onChange={(e) =>
+              setQuery(e.target.value)
+            }
 
-<div className="
-grid
-grid-cols-4
-gap-6
-mt-8
-text-center
-">
+            placeholder="Search Here"
 
-{categories.map(cat=>(
+            className="
+            bg-transparent
+            outline-none
 
-<div key={cat}>
+            flex-1
+            min-w-0
 
-<div className="
-w-16
-h-16
-rounded-full
-bg-[#1e1e1e]
-mx-auto
-mb-2
-"/>
+            text-sm
 
-<p className="text-sm">
+            placeholder:text-gray-500
+            "
+          />
 
-{cat}
+        </div>
 
-</p>
 
-</div>
 
-))}
+        <button
+          className="
+          bg-[#1e1e1e]
 
-</div>
+          p-3
 
+          rounded-2xl
 
+          border
+          border-gray-700
 
-{/* TOP VIDEOS */}
+          hover:border-purple-600
 
-<h2 className="
-text-3xl
-font-bold
-mt-12
-mb-5
-">
+          shrink-0
+          "
+        >
 
-Top Videos
+          <Mic className="w-5 h-5" />
 
-</h2>
+        </button>
 
+      </div>
 
-<div className="
-grid
-grid-cols-3
-gap-3
-">
 
-{filtered.slice(0,6).map(course=>(
 
-<div
-key={course.id}
-className="
-bg-[#111]
-rounded-xl
-overflow-hidden
-"
->
+      {/* CATEGORY ICONS */}
 
-<img
-src={course.image}
-className="
-w-full
-h-[150px]
-object-cover
-"
-/>
+      <div className="
+      grid
+      grid-cols-4
+      gap-5
 
-<div className="p-2">
+      mt-8
 
-<p className="
-text-xs
-font-semibold
-line-clamp-2
-">
+      text-center
+      ">
 
-{course.title}
+        {categories.map(cat => (
 
-</p>
+          <div key={cat}>
 
-</div>
+            <div
+              className="
+              w-14
+              h-14
 
-</div>
+              sm:w-16
+              sm:h-16
 
-))}
+              rounded-full
 
-</div>
+              bg-[#1e1e1e]
 
+              mx-auto
+              mb-2
+              "
+            />
 
+            <p className="
+            text-[11px]
+            sm:text-sm
+            ">
 
-{/* RECOMMENDATIONS */}
+              {cat}
 
-<h2 className="
-text-3xl
-font-bold
-mt-12
-mb-5
-">
+            </p>
 
-Recommended
+          </div>
 
-</h2>
+        ))}
 
+      </div>
 
-<div className="
-flex
-gap-4
-overflow-x-auto
-">
 
-{courses.map(course=>(
 
-<div
-key={course.id}
-className="
-min-w-[130px]
-bg-[#111]
-rounded-xl
-overflow-hidden
-"
->
+      {/* TOP VIDEOS */}
 
-<img
-src={course.image}
-className="
-w-full
-h-[150px]
-object-cover
-"
-/>
+      <h2 className="
+      text-2xl
+      font-bold
 
-<p className="p-2 text-xs">
+      mt-10
+      mb-5
+      ">
 
-{course.title}
+        Top Videos
 
-</p>
+      </h2>
 
-</div>
 
-))}
 
-</div>
+      <div className="
+      grid
+      grid-cols-2
+      sm:grid-cols-3
 
-</div>
+      gap-3
+      ">
 
-)
+        {filtered.slice(0, 6).map(course => (
+
+          <div
+            key={course.id}
+
+            className="
+            bg-[#111]
+
+            rounded-xl
+
+            overflow-hidden
+            "
+          >
+
+            <img
+              src={course.image}
+
+              className="
+              w-full
+
+              h-[130px]
+              sm:h-[150px]
+
+              object-cover
+              "
+            />
+
+            <div className="p-2">
+
+              <p
+                className="
+                text-xs
+                font-semibold
+
+                line-clamp-2
+                "
+              >
+
+                {course.title}
+
+              </p>
+
+            </div>
+
+          </div>
+
+        ))}
+
+      </div>
+
+
+
+      {/* RECOMMENDED */}
+
+      <h2 className="
+      text-2xl
+      font-bold
+
+      mt-10
+      mb-5
+      ">
+
+        Recommended
+
+      </h2>
+
+
+      <div className="
+      flex
+      gap-4
+
+      overflow-x-auto
+
+      no-scrollbar
+      ">
+
+        {courses.map(course => (
+
+          <div
+            key={course.id}
+
+            className="
+            min-w-[140px]
+
+            bg-[#111]
+
+            rounded-xl
+
+            overflow-hidden
+            "
+          >
+
+            <img
+              src={course.image}
+
+              className="
+              w-full
+
+              h-[140px]
+
+              object-cover
+              "
+            />
+
+
+            <p
+              className="
+              text-xs
+
+              p-2
+
+              line-clamp-2
+              "
+            >
+
+              {course.title}
+
+            </p>
+
+          </div>
+
+        ))}
+
+      </div>
+
+    </div>
+
+  );
 
 }
