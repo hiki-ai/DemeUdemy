@@ -1,37 +1,35 @@
 import { Link } from "react-router-dom";
 import {
-  Search,
   Home,
-  Heart,
-  User,
+  Search,
   PlayCircle,
-  Star,
+  Heart,
+  User
 } from "lucide-react";
 
 import CourseCard from "../components/CourseCard";
-import { courses, companies } from "../data/dummy";
+import { courses } from "../data/dummy";
 
 const categories = [
   "Development",
   "Design",
-  "Marketing",
   "Business",
+  "Marketing",
   "Lifestyle",
   "Photography",
 ];
 
 export default function LandingPage() {
   return (
-    <div className="bg-white min-h-screen pb-24">
+    <div className="bg-white min-h-screen pb-24 overflow-x-hidden">
 
-      {/* TOP BANNER */}
-
-      <div className="bg-yellow-100 text-center py-3 text-sm font-medium">
+      {/* TOP OFFER BAR */}
+      <div className="bg-yellow-100 py-3 text-center text-sm font-medium">
         Get skills that boost careers
       </div>
 
-      {/* HERO */}
 
+      {/* HERO */}
       <section className="p-4">
 
         <div className="bg-gray-100 rounded-lg p-6">
@@ -40,407 +38,243 @@ export default function LandingPage() {
             Thrive in your career
           </h1>
 
-          <p className="text-gray-600 mb-5">
-
-            Access curated courses designed for demand roles.
-
+          <p className="text-gray-600 mb-6">
+            Access curated courses for in-demand roles.
           </p>
 
-          <button className="bg-purple-700 text-white w-full py-3 rounded font-semibold">
-
+          <button
+            className="
+            bg-purple-700
+            text-white
+            w-full
+            py-3
+            rounded
+            font-semibold
+            "
+          >
             Try Personal Plan
-
           </button>
 
         </div>
+
       </section>
 
 
 
-{/* SECTION COMPONENT */}
+      {/* SECTION COMPONENT */}
 
-<section className="px-4">
+      <Section
+        title="Top courses in"
+        highlight="Development"
+      />
 
-<h2 className="text-2xl font-bold mb-4">
 
-Top courses in
+      {/* CATEGORIES */}
 
-<span className="text-purple-700">
+      <section className="px-4 mt-10">
 
- Development
+        <div className="flex justify-between">
 
-</span>
+          <h2 className="font-bold text-2xl">
 
-</h2>
+            Categories
 
+          </h2>
 
-<div className="flex overflow-x-auto gap-4 no-scrollbar">
+          <span className="text-purple-700">
 
-{courses.slice(0,6).map((course)=>(
+            See all
 
-<div
-key={course.id}
-className="min-w-[180px]"
->
+          </span>
 
-<CourseCard course={course}/>
+        </div>
 
-</div>
 
-))}
+        <div className="flex gap-3 overflow-x-auto mt-5 no-scrollbar">
 
-</div>
+          {categories.map((item) => (
 
-</section>
+            <button
+              key={item}
+              className="
+              border
+              rounded-full
+              px-5
+              py-2
+              whitespace-nowrap
+              "
+            >
 
+              {item}
 
+            </button>
 
-{/* CATEGORIES */}
+          ))}
 
-<section className="px-4 mt-10">
+        </div>
 
-<div className="flex justify-between">
+      </section>
 
-<h2 className="text-2xl font-bold">
 
-Categories
 
-</h2>
+      <Section
+        title="Top courses in"
+        highlight="Business"
+      />
 
-<span className="text-purple-700">
+      <Section
+        title="Top courses in"
+        highlight="Development"
+      />
 
-See all
+      <Section
+        title="Trending"
+        highlight="Courses"
+      />
 
-</span>
+      <Section
+        title="Top courses in"
+        highlight="Personal Development"
+      />
 
-</div>
+      <Section
+        title="Top courses in"
+        highlight="IT & Software"
+      />
 
 
-<div className="flex gap-3 overflow-x-auto mt-5 no-scrollbar">
 
-{categories.map((cat)=>(
+      {/* FIXED BOTTOM NAVBAR */}
 
-<button
-key={cat}
-className="
-border
-rounded-full
-px-5
-py-2
-whitespace-nowrap
-"
->
+      <div
+        className="
+        fixed
+        bottom-0
+        left-0
+        right-0
+        h-[65px]
+        bg-white
+        border-t
+        flex
+        justify-around
+        items-center
+        shadow-md
+        z-50
+        "
+      >
 
-{cat}
+        <NavItem
+          icon={<Home size={22} />}
+          text="Featured"
+          active
+        />
 
-</button>
+        <NavItem
+          icon={<Search size={22} />}
+          text="Search"
+        />
 
-))}
+        <NavItem
+          icon={<PlayCircle size={22} />}
+          text="Learning"
+        />
 
-</div>
+        <NavItem
+          icon={<Heart size={22} />}
+          text="Wishlist"
+        />
 
-</section>
+        <NavItem
+          icon={<User size={22} />}
+          text="Account"
+        />
 
+      </div>
 
+    </div>
+  );
+}
 
-{/* BUSINESS */}
 
-<section className="px-4 mt-12">
 
-<h2 className="text-2xl font-bold">
+/* SECTION */
 
-Top courses in
+function Section({ title, highlight }) {
+  return (
 
-<span className="text-purple-700">
+    <section className="px-4 mt-12">
 
- Business
+      <h2 className="font-bold text-2xl mb-5">
 
-</span>
+        {title}
 
-</h2>
+        <span className="text-purple-700">
 
+          {" "} {highlight}
 
-<div className="flex overflow-x-auto gap-4 mt-5">
+        </span>
 
-{courses.slice(2,8).map(course=>(
+      </h2>
 
-<div
-key={course.id}
-className="min-w-[180px]"
->
 
-<CourseCard course={course}/>
+      <div className="flex overflow-x-auto gap-4 no-scrollbar">
 
-</div>
+        {courses.slice(0, 8).map((course) => (
 
-))}
+          <div
+            key={course.id}
+            className="min-w-[180px]"
+          >
 
-</div>
+            <CourseCard
+              course={course}
+            />
 
-</section>
+          </div>
 
+        ))}
 
+      </div>
 
-{/* DEVELOPMENT */}
+    </section>
+  );
+}
 
-<section className="px-4 mt-12">
 
-<h2 className="text-2xl font-bold">
 
-Top courses in
+/* NAV ITEM */
 
-<span className="text-purple-700">
+function NavItem({
+  icon,
+  text,
+  active = false
+}) {
 
- Development
+  return (
 
-</span>
+    <button
+      className={`
+      flex
+      flex-col
+      items-center
+      text-xs
 
-</h2>
+      ${active
+          ? "text-purple-700"
+          : "text-gray-600"
+        }
+      `}
+    >
 
+      {icon}
 
-<div className="flex overflow-x-auto gap-4 mt-5">
+      <span>
 
-{courses.slice(1,8).map(course=>(
+        {text}
 
-<div
-key={course.id}
-className="min-w-[180px]"
->
+      </span>
 
-<CourseCard course={course}/>
+    </button>
 
-</div>
-
-))}
-
-</div>
-
-</section>
-
-
-
-{/* COMPANY TRUST */}
-
-<section className="px-4 mt-10">
-
-<div className="border rounded-lg p-5">
-
-<h2 className="font-semibold text-lg text-center">
-
-Top companies trust us
-
-</h2>
-
-
-<div className="flex justify-center gap-10 mt-5">
-
-{companies.map(company=>(
-
-<div key={company.name}>
-
-{company.logo}
-
-</div>
-
-))}
-
-</div>
-
-</div>
-
-</section>
-
-
-
-{/* TRENDING */}
-
-<section className="px-4 mt-12">
-
-<h2 className="text-2xl font-bold">
-
-Trending courses
-
-</h2>
-
-
-<div className="flex gap-4 overflow-x-auto mt-5">
-
-{courses.slice(0,8).map(course=>(
-
-<div
-key={course.id}
-className="min-w-[180px]"
->
-
-<CourseCard course={course}/>
-
-</div>
-
-))}
-
-</div>
-
-</section>
-
-
-
-{/* PERSONAL DEVELOPMENT */}
-
-<section className="px-4 mt-12">
-
-<h2 className="text-2xl font-bold">
-
-Top courses in
-
-<span className="text-purple-700">
-
- Personal Development
-
-</span>
-
-</h2>
-
-
-<div className="flex overflow-x-auto gap-4 mt-5">
-
-{courses.slice(0,8).map(course=>(
-
-<div
-key={course.id}
-className="min-w-[180px]"
->
-
-<CourseCard course={course}/>
-
-</div>
-
-))}
-
-</div>
-
-</section>
-
-
-
-{/* IT */}
-
-<section className="px-4 mt-12">
-
-<h2 className="text-2xl font-bold">
-
-Top courses in
-
-<span className="text-purple-700">
-
- IT & Software
-
-</span>
-
-</h2>
-
-
-<div className="flex overflow-x-auto gap-4 mt-5">
-
-{courses.slice(0,8).map(course=>(
-
-<div
-key={course.id}
-className="min-w-[180px]"
->
-
-<CourseCard course={course}/>
-
-</div>
-
-))}
-
-</div>
-
-</section>
-
-
-
-{/* MOBILE NAVBAR */}
-
-<div
-className="
-fixed
-bottom-0
-left-0
-right-0
-bg-white
-border-t
-flex
-justify-around
-items-center
-py-3
-z-50
-lg:hidden
-"
->
-
-<div className="flex flex-col items-center">
-
-<Home size={20}/>
-<span className="text-xs">
-
-Featured
-
-</span>
-
-</div>
-
-
-<div className="flex flex-col items-center">
-
-<Search size={20}/>
-<span className="text-xs">
-
-Search
-
-</span>
-
-</div>
-
-
-<div className="flex flex-col items-center">
-
-<PlayCircle size={20}/>
-<span className="text-xs">
-
-Learning
-
-</span>
-
-</div>
-
-
-<div className="flex flex-col items-center">
-
-<Heart size={20}/>
-<span className="text-xs">
-
-Wishlist
-
-</span>
-
-</div>
-
-
-<div className="flex flex-col items-center">
-
-<User size={20}/>
-<span className="text-xs">
-
-Account
-
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-);
+  );
 }
