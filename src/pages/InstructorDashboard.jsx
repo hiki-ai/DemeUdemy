@@ -31,7 +31,7 @@ const InstructorDashboard = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1 }}
-            className="bg-white p-8 rounded-[2.5rem] border border-border relative overflow-hidden group hover:border-primary/20 transition-all duration-500"
+            className="bg-white p-6 md:p-6 rounded-[1.5rem] border border-border relative overflow-hidden group hover:border-primary/20 transition-all duration-500"
           >
             <div className={`absolute top-0 right-0 w-24 h-24 ${stat.bg} blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-700`}></div>
             <div className="flex flex-col gap-6 relative z-10">
@@ -97,7 +97,7 @@ const InstructorDashboard = () => {
         {/* Activity Feed */}
         <div className="space-y-8">
            <h3 className="text-2xl font-black text-text tracking-tight">Recent Activity</h3>
-           <div className="bg-white p-10 rounded-[3.5rem] border border-border space-y-10 shadow-sm">
+           <div className="bg-white p-6 rounded-[2rem] border border-border space-y-8 shadow-sm">
               {[
                 { type: 'Sale', text: 'New enrollment in "Next.js Architecture"', time: '2 mins ago', icon: <DollarSign className="w-4 h-4" />, color: 'text-green-600', bg: 'bg-green-500/10' },
                 { type: 'Review', text: '5-star review from Priya M.', time: '45 mins ago', icon: <Star className="w-4 h-4" />, color: 'text-yellow-600', bg: 'bg-yellow-500/10' },
@@ -113,11 +113,11 @@ const InstructorDashboard = () => {
                    </div>
                 </div>
               ))}
-              <Button variant="outline" className="w-full mt-6 h-14 text-sm uppercase tracking-widest">View Full Activity</Button>
+                <Button variant="outline" className="w-full mt-4 h-12 text-sm uppercase tracking-widest">View Full Activity</Button>
            </div>
 
            {/* Growth Tips */}
-           <div className="bg-primary/5 p-10 rounded-[3.5rem] border border-primary/10 relative overflow-hidden group">
+           <div className="bg-primary/5 p-6 rounded-[2rem] border border-primary/10 relative overflow-hidden group">
               <TrendingUp className="w-10 h-10 text-primary mb-6 animate-pulse" />
               <h4 className="text-xl font-black text-text mb-4 tracking-tight">Growth Tip</h4>
               <p className="text-sm text-text-secondary leading-relaxed font-medium mb-8">Courses with closed captions see 40% higher global enrollment. Consider adding them to your latest course.</p>

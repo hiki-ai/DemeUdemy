@@ -62,7 +62,7 @@ const StudentDashboard = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1 }}
-            className="bg-white p-6 md:p-8 rounded-[2.5rem] border border-border relative overflow-hidden group hover:border-primary/20 transition-all duration-500 shadow-sm"
+            className="bg-white p-4 md:p-6 rounded-[1.5rem] border border-border relative overflow-hidden group hover:border-primary/20 transition-all duration-500 shadow-sm"
           >
             <div className={`absolute top-0 right-0 w-24 h-24 ${stat.bg} blur-3xl -translate-y-1/2 translate-x-1/2`}></div>
             <div className="flex items-center gap-5 relative z-10">
@@ -101,13 +101,13 @@ const StudentDashboard = () => {
                    whileInView={{ opacity: 1, scale: 1 }}
                    viewport={{ once: true }}
                    transition={{ delay: i * 0.1 }}
-                   className="group relative bg-white/50 backdrop-blur-xl rounded-[3rem] border border-border overflow-hidden hover:border-primary/40 transition-all duration-500 shadow-lg hover:shadow-neon-purple"
+                  className="group relative bg-white/50 backdrop-blur-xl rounded-[2rem] border border-border overflow-hidden hover:border-primary/40 transition-all duration-500 shadow-lg hover:shadow-neon-purple"
                  >
                     {/* Neon Glow Border Effect */}
                     <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/20 rounded-[3rem] pointer-events-none transition-all duration-500"></div>
                     
                     {/* Video Container */}
-                    <div className="aspect-video relative overflow-hidden rounded-t-[2.8rem] bg-black group-hover:shadow-2xl transition-all">
+                    <div className="aspect-video relative overflow-hidden rounded-t-[1.5rem] bg-black group-hover:shadow-2xl transition-all max-h-[200px] md:max-h-none">
                        <iframe 
                          src={`https://player.vdocipher.com/v2/?otp=${video.otp}&playbackInfo=${video.playbackInfo}`}
                          className="w-full h-full absolute inset-0"
@@ -118,28 +118,28 @@ const StudentDashboard = () => {
                        ></iframe>
                        
                        {/* Watch Status Badge */}
-                       <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-primary/90 backdrop-blur-md text-[9px] font-black text-white uppercase tracking-widest shadow-lg z-10">
+                       <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-primary/90 backdrop-blur-md text-[8px] font-black text-white uppercase tracking-widest shadow-lg z-10">
                           {video.status}
                        </div>
                     </div>
 
                     {/* Content */}
-                    <div className="p-6 md:p-8 space-y-6 bg-gradient-to-b from-transparent to-primary/5">
+                    <div className="p-3 md:p-5 space-y-3 bg-gradient-to-b from-transparent to-primary/5">
                        <div className="flex justify-between items-start">
-                          <h3 className="text-lg font-black text-text leading-tight line-clamp-2 group-hover:text-primary transition-colors">
+                          <h3 className="text-sm md:text-base font-black text-text leading-tight line-clamp-2 group-hover:text-primary transition-colors">
                              {video.title}
                           </h3>
-                          <div className="flex items-center gap-1.5 text-text-muted font-black text-[10px] uppercase tracking-widest shrink-0 mt-1">
+                          <div className="flex items-center gap-1.5 text-text-muted font-black text-[9px] uppercase tracking-widest shrink-0 mt-1">
                              <Clock className="w-3.5 h-3.5" /> {video.duration}
                           </div>
                        </div>
 
                        <div className="space-y-3">
-                          <div className="flex justify-between text-[10px] font-black text-text-muted uppercase tracking-widest">
+                          <div className="flex justify-between text-[9px] font-black text-text-muted uppercase tracking-widest">
                              <span>Course Progress</span>
                              <span className="text-primary">{video.progress}%</span>
                           </div>
-                          <div className="h-1.5 w-full bg-background-light rounded-full overflow-hidden shadow-inner">
+                          <div className="h-1 w-full bg-background-light rounded-full overflow-hidden shadow-inner">
                              <motion.div 
                                initial={{ width: 0 }}
                                whileInView={{ width: `${video.progress}%` }}
@@ -151,7 +151,7 @@ const StudentDashboard = () => {
                           </div>
                        </div>
 
-                       <Button className="w-full py-4 h-14 text-xs font-black uppercase tracking-[0.2em] shadow-violet-glow group-hover:scale-[1.02]">
+                          <Button className="w-full py-2.5 h-10 text-[12px] font-black uppercase tracking-[0.2em] shadow-violet-glow group-hover:scale-[1.02]">
                           Continue Learning <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                        </Button>
                     </div>

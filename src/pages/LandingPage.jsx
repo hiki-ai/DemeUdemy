@@ -61,7 +61,7 @@ const LandingPage = () => {
       </section>
 
       {/* 2. Professional Social Proof Section */}
-      <section className="py-16 bg-background-light/30 border-b border-border">
+        <section className="py-12 bg-background-light/30 border-b border-border">
         <div className="container mx-auto px-6 text-center">
           <p className="text-[15px] text-text-muted font-medium mb-10 opacity-70">Trusted by over 15,000+ companies and millions of learners worldwide</p>
           <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20 lg:gap-32 opacity-30 grayscale hover:grayscale-0 transition-all duration-700">
@@ -73,7 +73,7 @@ const LandingPage = () => {
       </section>
 
       {/* 3. A broad selection of courses */}
-      <section className="py-24">
+        <section className="py-16">
          <div className="container mx-auto px-6">
             <h2 className="text-3xl font-black text-text mb-4 tracking-tight">A broad selection of courses</h2>
             <p className="text-xl text-text-secondary mb-12 max-w-3xl">Choose from over 210,000 online video courses with new additions published every month</p>
@@ -96,7 +96,7 @@ const LandingPage = () => {
       </section>
 
       {/* 4. AI Career Banner (Dark Premium Section) */}
-      <section className="py-24">
+        <section className="py-16">
          <div className="container mx-auto px-6">
             <div className="bg-background-dark rounded-[3rem] p-12 md:p-24 relative overflow-hidden group shadow-2xl">
                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 blur-[150px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
@@ -152,7 +152,7 @@ const LandingPage = () => {
       </section>
 
       {/* 5. Trending Categories Swiper */}
-      <section className="py-24 bg-background-light/50">
+        <section className="py-16 bg-background-light/50">
          <div className="container mx-auto px-6">
             <h2 className="text-3xl font-black text-text mb-16 tracking-tight">Top categories</h2>
             <Swiper
@@ -186,7 +186,7 @@ const LandingPage = () => {
       </section>
 
       {/* 6. Learners are viewing Swiper */}
-      <section className="py-24">
+        <section className="py-16">
          <div className="container mx-auto px-6">
             <h2 className="text-3xl font-black text-text mb-12 tracking-tight">Learners are viewing</h2>
             <Swiper
@@ -211,7 +211,7 @@ const LandingPage = () => {
       </section>
 
       {/* 7. Testimonials Section */}
-      <section className="py-32 bg-white">
+        <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
            <h2 className="text-4xl md:text-5xl font-black text-text mb-20 text-center tracking-tight">How learners like you are <br/> achieving their <span className="text-primary">goals</span></h2>
            <div className="grid md:grid-cols-3 gap-10">
@@ -239,7 +239,7 @@ const LandingPage = () => {
       </section>
 
       {/* 8. Final CTA (Premium Udemy Business Style) */}
-      <section className="py-32 px-6">
+        <section className="py-20 px-6">
         <div className="container mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-20">
              <div className="flex-1 space-y-8">
